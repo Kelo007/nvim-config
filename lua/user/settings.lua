@@ -74,8 +74,8 @@ function M.setup()
     {"n", "<C-k>", "<C-w>k"},
     {"n", "<C-l>", "<C-w>l"},
     {"n", "<space>", "<nop>"},
-    {"n", "<S-h>", ":bnext<cr>"},
-    {"n", "<S-l>", ":bprevious<cr>"},
+    {"n", "<S-h>", "<Home>"},
+    {"n", "<S-l>", "<End>"},
 
     {"n", "<A-j>", ":move .+1<cr>=="},
     {"n", "<A-k>", ":move .-2<cr>=="},
