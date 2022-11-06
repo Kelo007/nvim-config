@@ -108,11 +108,10 @@ function M.setup()
     }
 
     -- telescope
-    -- do not lazy loading, fast operation
     use {
       "nvim-telescope/telescope-fzf-native.nvim",
       run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-      -- event = "CursorHold",
+      event = { "CursorHold", "VimEnter" },
     }
     use {
       "nvim-telescope/telescope.nvim", branch = "0.1.x",
