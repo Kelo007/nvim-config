@@ -31,6 +31,11 @@ function M.setup()
       ignore = true,
       timeout = 500,
     },
+    trash = {
+      -- need `trash` dependencies
+      cmd = "trash ",
+      require_confirm = true,
+    },
     view = {
       width = 25,
       hide_root_folder = false,
