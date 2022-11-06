@@ -58,6 +58,7 @@ local config = {
     { "<leader>lA", vim.lsp.codelens.run, { desc = "CodeLens Action" }},
     { "<leader>lq", vim.diagnostic.setloclist, { desc = "Quickfix" }},
     { "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" }},
+    { "<leader>Ll", "<cmd>LspLog<cr>", { desc = "LSP Logfile" }},
   },
   diagnostic = {
     -- disable virtual text

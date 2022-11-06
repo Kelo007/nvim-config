@@ -16,7 +16,15 @@ function M.setup()
 
   -- Install your plugins here
   packer.startup(function(use)
-    use("wbthomason/packer.nvim") -- Have packer manage itself
+    use {
+      "wbthomason/packer.nvim",
+      config = function ()
+        local utils = require("user.utils")
+        utils.keymap("n", "<leader>Lp", function ()
+          utils.open_logfile("packer.nvim.log")
+        end, { desc = "Packer Log" })
+      end
+    } -- Have packer manage itself
     use("lewis6991/impatient.nvim")
     use("nvim-lua/plenary.nvim") -- Useful lua functions used by lots of plugins
     use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim

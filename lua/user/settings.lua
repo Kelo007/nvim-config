@@ -116,6 +116,8 @@ function M.setup()
     {"n", "<leader>h", ":nohls<cr>", { desc = "No Highlight" }},
     {"n", "<leader>e", ":Lex 30<cr>", { desc = "Toggle Explorer" }},
 
+    {"n", "<leader>Ln", ":edit $NVIM_LOG_FILE<cr>", { desc = "Neovim Logfile" }},
+
     {"c", "<C-j>", 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true } },
     {"c", "<C-k>", 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true } },
   }

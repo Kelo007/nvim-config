@@ -76,6 +76,10 @@ function M.setup()
   k("n", "<leader>T", builtin.lsp_dynamic_workspace_symbols, { desc = "Project Symbols" })
 
   k("n", "<leader>bf", builtin.buffers, { desc = "Find Buffers" })
+
+  k("n", "<leader>Lt", function ()
+    require("user.utils").open_logfile("telescope.log")
+  end, { desc = "Telescope Log" })
 end
 
 return M

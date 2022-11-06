@@ -43,6 +43,11 @@ function M.disable_builtin_plugins()
   end
 end
 
+function M.open_logfile(filename)
+  local cache_path = vim.call("stdpath", "cache")
+  vim.cmd("edit " .. cache_path .. "/" .. filename)
+end
+
 M.icons = {
   kind = {
     Array = "",
