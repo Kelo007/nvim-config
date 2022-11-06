@@ -13,7 +13,7 @@ function M.setup()
     nowait = true, -- use `nowait` when creating keymaps
   }
 
-  local mappings = {
+  local _ = {
     ["b"] = {
       "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
       "Buffers",
@@ -113,24 +113,10 @@ function M.setup()
       p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
       f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
       h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+      v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
     },
   }
 
-  local vopts = {
-    mode = "v", -- VISUAL mode
-    prefix = "<leader>",
-    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-    silent = true, -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = true, -- use `nowait` when creating keymaps
-  }
-  local vmappings = {
-    ["/"] = { "<ESC><CMD>lua require(\"Comment.api\").toggle_linewise_op(vim.fn.visualmode())<CR>", "Comment" },
-  }
-
-  --which_key.register(mappings, opts)
-  --which_key.register(vmappings, vopts)
   which_key.setup {
     window = {
       border = "single", -- none, single, double, shadow
@@ -156,6 +142,7 @@ v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
     ["<leader>f"] = { name = "+Find" },
     ["<leader>g"] = { name = "+Git" },
     ["<leader>l"] = { name = "+LSP" },
+    ["<leader>L"] = { name = "+Log" },
   }
 end
 
