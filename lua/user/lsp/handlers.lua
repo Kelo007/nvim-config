@@ -59,6 +59,14 @@ local config = {
     { "<leader>lq", vim.diagnostic.setloclist, { desc = "Quickfix" }},
     { "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" }},
     { "<leader>Ll", "<cmd>LspLog<cr>", { desc = "LSP Logfile" }},
+    { "]d", vim.diagnostic.goto_next, { desc = "Next Diagnostic" }},
+    { "[d", vim.diagnostic.goto_prev, { desc = "Prev Diagnostic" }},
+  },
+  buffer_options = {
+    --- enable completion triggered by <c-x><c-o>
+    omnifunc = "v:lua.vim.lsp.omnifunc",
+    --- use gq for formatting
+    formatexpr = "v:lua.vim.lsp.formatexpr(#{timeout_ms:500})",
   },
   diagnostic = {
     -- disable virtual text
@@ -161,8 +169,15 @@ local function lsp_keymaps(bufnr)
   -- vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
+local function lsp_buffer_options(bufnr)
+  for k, v in pairs(config.buffer_options) do
+    vim.api.nvim_buf_set_option(bufnr, k, v)
+  end
+end
+
 M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
+  lsp_buffer_options(bufnr)
   if config.document_highlight then
     lsp_highlight_document(client)
   end

@@ -74,6 +74,12 @@ M.setup = function ()
   k("n", "<leader>gb", function ()
     gitsigns.blame_line()
   end, { desc = "Blame" })
+  k("n", "]g", function ()
+    gitsigns.next_hunk({ navigation_message = false })
+  end, { desc = "Next Hunk" })
+  k("n", "[g", function ()
+    gitsigns.prev_hunk({ navigation_message = false })
+  end, { desc = "Prev Hunk" })
 end
 
 return M
