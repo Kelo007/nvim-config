@@ -1,11 +1,7 @@
 local M = {}
 
 M.setup = function ()
-  local status_ok, gitsigns = pcall(require, "gitsigns")
-  if not status_ok then
-    return
-  end
-
+  local gitsigns = require("gitsigns")
   gitsigns.setup {
     signs = {
       add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
@@ -49,6 +45,35 @@ M.setup = function ()
       enable = false,
     },
   }
+
+  local k = require("user.utils").keymap
+  k("n", "<leader>gj", function ()
+    gitsigns.next_hunk({ navigation_message = false })
+  end, { desc = "Next Hunk" })
+  k("n", "<leader>gk", function ()
+    gitsigns.prev_hunk({ navigation_message = false })
+  end, { desc = "Prev Hunk" })
+  k("n", "<leader>gp", function ()
+    gitsigns.preview_hunk()
+  end, { desc = "Preview Hunk" })
+  k("n", "<leader>gr", function ()
+    gitsigns.reset_hunk()
+  end, { desc = "Reset Hunk" })
+  k("n", "<leader>gR", function ()
+    gitsigns.reset_buffer()
+  end, { desc = "Reset Buffer" })
+  k("n", "<leader>gs", function ()
+    gitsigns.stage_hunk()
+  end, { desc = "Stage Hunk" })
+  k("n", "<leader>gu", function ()
+    gitsigns.undo_stage_hunk()
+  end, { desc = "Undo Stage Hunk" })
+  k("n", "<leader>gd", function ()
+    gitsigns.diffthis("HEAD")
+  end, { desc = "Git Diff" })
+  k("n", "<leader>gb", function ()
+    gitsigns.blame_line()
+  end, { desc = "Blame" })
 end
 
 return M
