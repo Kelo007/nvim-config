@@ -34,14 +34,14 @@ local config = {
   --vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
   --vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
   keymap = {
-    {"K", vim.lsp.buf.hover},
-    {"gd", vim.lsp.buf.definition, { desc = "Definition" }},
-    {"gD", vim.lsp.buf.declaration, { desc = "Declaration" }},
-    {"gI", vim.lsp.buf.implementation, { desc = "implementation" }},
-    {"gs", vim.lsp.buf.signature_help, { desc = "Signature Help" }},
-    {"gr", vim.lsp.buf.references, { desc = "References" }},
-    {"gl",
-      function ()
+    { "K", vim.lsp.buf.hover },
+    { "gd", vim.lsp.buf.definition, { desc = "Definition" } },
+    { "gD", vim.lsp.buf.declaration, { desc = "Declaration" } },
+    { "gI", vim.lsp.buf.implementation, { desc = "implementation" } },
+    { "gs", vim.lsp.buf.signature_help, { desc = "Signature Help" } },
+    { "gr", vim.lsp.buf.references, { desc = "References" } },
+    { "gl",
+      function()
         local float_config = vim.tbl_extend("force", float, {
           scope = "line",
         })
@@ -49,18 +49,18 @@ local config = {
       end,
       { desc = "Line Diagnostics" }
     },
-    { "<leader>la", vim.lsp.buf.code_action, { desc = "Code Action" }},
-    { "<leader>lf", vim.lsp.buf.format, { desc = "Format" }},
-    { "<leader>li", "<cmd>LspInfo<cr>", { desc = "LSP Info" }},
-    { "<leader>lI", "<cmd>Mason<cr>", { desc = "Mason Info" }},
-    { "<leader>lj", vim.diagnostic.goto_next, { desc = "Next Diagnostic" }},
-    { "<leader>lk", vim.diagnostic.goto_prev, { desc = "Prev Diagnostic" }},
-    { "<leader>lA", vim.lsp.codelens.run, { desc = "CodeLens Action" }},
-    { "<leader>lq", vim.diagnostic.setloclist, { desc = "Quickfix" }},
-    { "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" }},
-    { "<leader>Ll", "<cmd>LspLog<cr>", { desc = "LSP Logfile" }},
-    { "]d", vim.diagnostic.goto_next, { desc = "Next Diagnostic" }},
-    { "[d", vim.diagnostic.goto_prev, { desc = "Prev Diagnostic" }},
+    { "<leader>la", vim.lsp.buf.code_action, { desc = "Code Action" } },
+    { "<leader>lf", vim.lsp.buf.format, { desc = "Format" } },
+    { "<leader>li", "<cmd>LspInfo<cr>", { desc = "LSP Info" } },
+    { "<leader>lI", "<cmd>Mason<cr>", { desc = "Mason Info" } },
+    { "<leader>lj", vim.diagnostic.goto_next, { desc = "Next Diagnostic" } },
+    { "<leader>lk", vim.diagnostic.goto_prev, { desc = "Prev Diagnostic" } },
+    { "<leader>lA", vim.lsp.codelens.run, { desc = "CodeLens Action" } },
+    { "<leader>lq", vim.diagnostic.setloclist, { desc = "Quickfix" } },
+    { "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" } },
+    { "<leader>Ll", "<cmd>LspLog<cr>", { desc = "LSP Logfile" } },
+    { "]d", vim.diagnostic.goto_next, { desc = "Next Diagnostic" } },
+    { "[d", vim.diagnostic.goto_prev, { desc = "Prev Diagnostic" } },
   },
   buffer_options = {
     --- enable completion triggered by <c-x><c-o>
@@ -199,4 +199,3 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 return M
-

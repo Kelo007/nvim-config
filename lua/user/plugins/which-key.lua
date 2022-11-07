@@ -4,7 +4,7 @@ function M.setup()
   local which_key = require("which-key")
 
 
-  local opts = {
+  local _ = {
     mode = "n", -- NORMAL mode
     prefix = "<leader>",
     buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
@@ -147,4 +147,3 @@ function M.setup()
 end
 
 return M
-

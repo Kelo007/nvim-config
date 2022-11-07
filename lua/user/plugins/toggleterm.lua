@@ -11,7 +11,7 @@ function M.setup()
   vim.api.nvim_create_augroup("toggle_terminal_keymap", { clear = true })
   vim.api.nvim_create_autocmd("TermOpen", {
     pattern = "term://*",
-    callback = function ()
+    callback = function()
       local utils = require("user.utils")
       local opts = { buffer = 0 }
       utils.keymap("t", "<esc>", [[<C-\><C-n>]], opts)
@@ -26,4 +26,3 @@ function M.setup()
 end
 
 return M
-

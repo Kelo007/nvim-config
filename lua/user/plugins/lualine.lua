@@ -21,15 +21,14 @@ function M.setup()
       globalstatus = true,
     },
     sections = {
-      lualine_a = {"mode"},
-      lualine_b = {"branch", "diagnostics"},
-      lualine_c = {"filename"},
-      lualine_x = {"fileformat", spaces, "encoding"},
-      lualine_y = {"filetype"},
-      lualine_z = {"location"}
+      lualine_a = { "mode" },
+      lualine_b = { "branch", "diagnostics" },
+      lualine_c = { "filename" },
+      lualine_x = { "fileformat", spaces, "encoding" },
+      lualine_y = { "filetype" },
+      lualine_z = { "location" }
     },
   }
 end
 
 return M
-

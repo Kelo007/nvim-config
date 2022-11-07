@@ -19,7 +19,7 @@ function M.setup()
     showtabline = 2, -- always show tabs
     smartcase = true, -- smart case
     smartindent = true, -- make indenting smarter again
-    smarttab =  true,
+    smarttab = true,
     splitbelow = true, -- force all horizontal splits to go below current window
     splitright = true, -- force all vertical splits to go to the right of current window
     swapfile = false, -- creates a swapfile
@@ -69,27 +69,27 @@ function M.setup()
   vim.g.maplocalleader = " "
 
   local keymaps = {
-    {"n", "<C-h>", "<C-w>h"},
-    {"n", "<C-j>", "<C-w>j"},
-    {"n", "<C-k>", "<C-w>k"},
-    {"n", "<C-l>", "<C-w>l"},
-    {"n", "<space>", "<nop>"},
-    {"n", "<S-h>", "<Home>"},
-    {"n", "<S-l>", "<End>"},
+    { "n", "<C-h>", "<C-w>h" },
+    { "n", "<C-j>", "<C-w>j" },
+    { "n", "<C-k>", "<C-w>k" },
+    { "n", "<C-l>", "<C-w>l" },
+    { "n", "<space>", "<nop>" },
+    { "n", "<S-h>", "<Home>" },
+    { "n", "<S-l>", "<End>" },
 
-    {"n", "<A-j>", ":move .+1<cr>=="},
-    {"n", "<A-k>", ":move .-2<cr>=="},
-    {"v", "<A-j>", ":move '>+1<cr>gv=gv"},
-    {"v", "<A-k>", ":move '<-2<cr>gv=gv"},
+    { "n", "<A-j>", ":move .+1<cr>==" },
+    { "n", "<A-k>", ":move .-2<cr>==" },
+    { "v", "<A-j>", ":move '>+1<cr>gv=gv" },
+    { "v", "<A-k>", ":move '<-2<cr>gv=gv" },
 
     -- yank
-    {"n", "Y", "\"+y"},
-    {"v", "Y", "\"+y"},
+    { "n", "Y", "\"+y" },
+    { "v", "Y", "\"+y" },
 
-    {"n", "<up>", ":resize +5<cr>"},
-    {"n", "<down>", ":resize -5<cr>"},
-    {"n", "<right>", ":vertical resize +5<cr>"},
-    {"n", "<left>", ":vertical resize -5<cr>"},
+    { "n", "<up>", ":resize +5<cr>" },
+    { "n", "<down>", ":resize -5<cr>" },
+    { "n", "<right>", ":vertical resize +5<cr>" },
+    { "n", "<left>", ":vertical resize -5<cr>" },
 
     --  {"n", "H", "7h"},
     --  {"n", "J", "5j"},
@@ -100,26 +100,26 @@ function M.setup()
     --  {"v", "K", "5k"},
     --  {"v", "L", "7l"},
 
-    {"n", "VV", "ggVG"},
+    { "n", "VV", "ggVG" },
 
-    {"v", "<", "<gv"},
-    {"v", ">", ">gv"},
+    { "v", "<", "<gv" },
+    { "v", ">", ">gv" },
 
-    {"i", "jj", "<esc>"},
+    { "i", "jj", "<esc>" },
     --{"i", "jk", "<esc>"},
     --{"i", "kj", "<esc>"},
 
     --{"n", "<leader>s", ":luafile $MYVIMRC<cr>:nohls<cr>"},
-    {"n", "<leader>w", ":write<cr>", { desc= "Save" }},
-    {"n", "<leader>q", ":quit<cr>", { desc = "Close Buffer" }},
-    {"n", "<leader>c", ":close<cr>", { desc = "Close Window" }},
-    {"n", "<leader>h", ":nohls<cr>", { desc = "No Highlight" }},
-    {"n", "<leader>e", ":Lex 30<cr>", { desc = "Toggle Explorer" }},
+    { "n", "<leader>w", ":write<cr>", { desc = "Save" } },
+    { "n", "<leader>q", ":quit<cr>", { desc = "Close Buffer" } },
+    { "n", "<leader>c", ":close<cr>", { desc = "Close Window" } },
+    { "n", "<leader>h", ":nohls<cr>", { desc = "No Highlight" } },
+    { "n", "<leader>e", ":Lex 30<cr>", { desc = "Toggle Explorer" } },
 
-    {"n", "<leader>Ln", ":edit $NVIM_LOG_FILE<cr>", { desc = "Neovim Logfile" }},
+    { "n", "<leader>Ln", ":edit $NVIM_LOG_FILE<cr>", { desc = "Neovim Logfile" } },
 
-    {"c", "<C-j>", 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true } },
-    {"c", "<C-k>", 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true } },
+    { "c", "<C-j>", 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true } },
+    { "c", "<C-k>", 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true } },
   }
 
   local utils = require("user.utils")
@@ -145,3 +145,4 @@ function M.setup()
 end
 
 return M
+

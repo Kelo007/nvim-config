@@ -23,10 +23,10 @@ function M.setup()
     },
     extensions = {
       fzf = {
-        fuzzy = true,                    -- false will only do exact matching
-        override_generic_sorter = true,  -- override the generic sorter
-        override_file_sorter = true,     -- override the file sorter
-        case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+        fuzzy = true, -- false will only do exact matching
+        override_generic_sorter = true, -- override the generic sorter
+        override_file_sorter = true, -- override the file sorter
+        case_mode = "smart_case", -- or "ignore_case" or "respect_case"
         -- the default case_mode is "smart_case"
       },
     },
@@ -54,14 +54,14 @@ function M.setup()
   k("n", "<leader>fk", builtin.keymaps, { desc = "Keymaps" })
   k("n", "<leader>fc", builtin.commands, { desc = "Commands" })
 
-  k("n", "<leader>p", function ()
+  k("n", "<leader>p", function()
     builtin.find_files(dropdown_theme { previewer = false })
   end, { desc = "Find Files" })
 
-  k("n", "<leader>ld", function ()
+  k("n", "<leader>ld", function()
     builtin.diagnostics(ivy_theme { bufnr = 0 })
   end, { desc = "Buffer Diagnostics" })
-  k("n", "<leader>lD", function ()
+  k("n", "<leader>lD", function()
     builtin.diagnostics(ivy_theme {})
   end, { desc = "Project Diagnostics" })
   k("n", "<leader>ls", builtin.lsp_document_symbols, { desc = "Buffer Symbols" })
@@ -77,10 +77,9 @@ function M.setup()
 
   k("n", "<leader>bf", builtin.buffers, { desc = "Find Buffers" })
 
-  k("n", "<leader>Lt", function ()
+  k("n", "<leader>Lt", function()
     require("user.utils").open_logfile("telescope.log")
   end, { desc = "Telescope Log" })
 end
 
 return M
-

@@ -78,10 +78,9 @@ function M.setup()
   }
 
   local k = require("user.utils").keymap
-  k("n", "<leader>e", function ()
+  k("n", "<leader>e", function()
     require("nvim-tree.api").tree.toggle()
   end, { desc = "Explorer" })
 end
 
 return M
-

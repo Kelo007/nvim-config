@@ -92,9 +92,9 @@ function M.setup()
           fallback()
         end
       end, {
-          "i",
-          "s",
-        }),
+        "i",
+        "s",
+      }),
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if luasnip.jumpable(-1) then
           luasnip.jump(-1)
@@ -102,9 +102,9 @@ function M.setup()
           fallback()
         end
       end, {
-          "i",
-          "s",
-        }),
+        "i",
+        "s",
+      }),
       ["<C-;>"] = cmp.mapping(function(fallback)
         if luasnip.expand_or_locally_jumpable() then
           luasnip.expand_or_jump()
@@ -112,9 +112,9 @@ function M.setup()
           fallback()
         end
       end, {
-          "i",
-          "s",
-        }),
+        "i",
+        "s",
+      }),
       ["<C-,>"] = cmp.mapping(function(fallback)
         if luasnip.jumpable(-1) then
           luasnip.jump(-1)
@@ -122,9 +122,9 @@ function M.setup()
           fallback()
         end
       end, {
-          "i",
-          "s",
-        }),
+        "i",
+        "s",
+      }),
     },
     formatting = {
       fields = { "kind", "abbr", "menu" },

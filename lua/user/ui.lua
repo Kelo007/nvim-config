@@ -19,9 +19,9 @@ function M.setup()
     style = "cool",
     highlights = {
       -- fg = c.fg, bg = c.dark_cyan
-      Search = {fg = "#a5b0c5", bg = "#25747d"},
+      Search = { fg = "#a5b0c5", bg = "#25747d" },
       -- fg = c.bg0, bg = c.orange
-      IncSearch = {fg = "#242b38", bg = "#d99a5e"},
+      IncSearch = { fg = "#242b38", bg = "#d99a5e" },
     },
   }
   onedark.load()

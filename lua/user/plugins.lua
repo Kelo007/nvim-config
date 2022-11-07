@@ -18,9 +18,9 @@ function M.setup()
   packer.startup(function(use)
     use {
       "wbthomason/packer.nvim",
-      config = function ()
+      config = function()
         local utils = require("user.utils")
-        utils.keymap("n", "<leader>Lp", function ()
+        utils.keymap("n", "<leader>Lp", function()
           utils.open_logfile("packer.nvim.log")
         end, { desc = "Packer Log" })
       end
@@ -28,7 +28,7 @@ function M.setup()
     use("lewis6991/impatient.nvim")
     use("nvim-lua/plenary.nvim") -- Useful lua functions used by lots of plugins
     use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
---    use("antoinemadec/FixCursorHold.nvim")
+    --    use("antoinemadec/FixCursorHold.nvim")
 
     -- Colorschemes
     --use("lunarvim/onedarker.nvim")
@@ -39,7 +39,7 @@ function M.setup()
     -- bufdelete
     use {
       "famiu/bufdelete.nvim",
-      config = function ()
+      config = function()
         require("user.plugins.bufdelete").setup()
       end
     }
@@ -49,18 +49,18 @@ function M.setup()
     use {
       "nvim-tree/nvim-tree.lua",
       requires = { "nvim-tree/nvim-web-devicons" },
-      config = function ()
+      config = function()
         require("user.plugins.nvim-tree").setup()
       end,
-      event = {"CursorHold", "VimEnter"},
+      event = { "CursorHold", "VimEnter" },
     }
 
     -- bufferline
     use {
       "akinsho/bufferline.nvim",
       tag = "v3.*",
-      requires = { "nvim-tree/nvim-web-devicons", "famiu/bufdelete.nvim"},
-      config = function ()
+      requires = { "nvim-tree/nvim-web-devicons", "famiu/bufdelete.nvim" },
+      config = function()
         require("user.plugins.bufferline").setup()
       end,
     }
@@ -69,7 +69,7 @@ function M.setup()
     use {
       "nvim-lualine/lualine.nvim",
       requires = { "nvim-tree/nvim-web-devicons", opt = true },
-      config = function ()
+      config = function()
         require("user.plugins.lualine").setup()
       end,
     }
@@ -86,7 +86,7 @@ function M.setup()
     use {
       "hrsh7th/nvim-cmp",
       after = "LuaSnip",
-      config = function ()
+      config = function()
         -- change name to avoid diagnostics
         require("user.plugins.cmpletion").setup()
       end,
@@ -110,7 +110,7 @@ function M.setup()
     use {
       "williamboman/mason-lspconfig.nvim",
       after = "mason.nvim",
-      config = function ()
+      config = function()
         require("user.lsp").setup()
       end,
     }
@@ -125,7 +125,7 @@ function M.setup()
       "nvim-telescope/telescope.nvim", branch = "0.1.x",
       requires = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-fzf-native.nvim" },
       after = "telescope-fzf-native.nvim",
-      config = function ()
+      config = function()
         require("user.plugins.telescope").setup()
       end
     }
@@ -135,7 +135,7 @@ function M.setup()
       "nvim-treesitter/nvim-treesitter",
       -- Unknown error
       -- run = ":TSUpdate",
-      config = function ()
+      config = function()
         require("user.plugins.treesitter").setup()
       end
     }
@@ -143,7 +143,7 @@ function M.setup()
     -- autopairs
     use {
       "windwp/nvim-autopairs",
-      config = function ()
+      config = function()
         require("user.plugins.autopairs").setup()
       end,
       after = "nvim-cmp",
@@ -185,7 +185,7 @@ function M.setup()
     ---- indent_blankline
     use {
       "lukas-reineke/indent-blankline.nvim",
-      config = function ()
+      config = function()
         require("indent_blankline").setup {
           char = "▏",
           show_current_context_start = false

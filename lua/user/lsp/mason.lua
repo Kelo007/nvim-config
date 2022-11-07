@@ -1,22 +1,22 @@
 -- setting up mason
 local servers = {
-	--"sumneko_lua",
+  --"sumneko_lua",
   --"clangd",
-	--"pyright",
-	--"jsonls",
+  --"pyright",
+  --"jsonls",
 }
 
 local settings = {
-	ui = {
-		border = "rounded",
-		icons = {
+  ui = {
+    border = "rounded",
+    icons = {
       package_installed = "✓",
       package_pending = "➜",
       package_uninstalled = "✗"
-		},
-	},
-	log_level = vim.log.levels.INFO,
-	max_concurrent_installers = 4,
+    },
+  },
+  log_level = vim.log.levels.INFO,
+  max_concurrent_installers = 4,
 }
 
 require("mason").setup(settings)
@@ -31,22 +31,22 @@ local default_opts = {
 }
 
 mason_lspconfig.setup({
-	ensure_installed = servers,
-	automatic_installation = true,
+  ensure_installed = servers,
+  automatic_installation = true,
 })
 
 mason_lspconfig.setup_handlers({
   -- The first entry (without a key) will be the default handler
   -- and will be called for each installed server that doesn't have
   -- a dedicated handler.
-  function (server_name) -- default handler (optional)
+  function(server_name) -- default handler (optional)
     lspconfig[server_name].setup(default_opts)
   end,
   -- Next, you can provide targeted overrides for specific servers.
   --["rust_analyzer"] = function ()
   --  require("rust-tools").setup {}
   --end,
-  ["sumneko_lua"] = function ()
+  ["sumneko_lua"] = function()
     local opts = vim.tbl_extend("force", default_opts, {
       settings = {
         Lua = {
@@ -65,4 +65,3 @@ mason_lspconfig.setup_handlers({
     lspconfig.sumneko_lua.setup(opts)
   end,
 })
-
