@@ -40,7 +40,10 @@ function M.setup()
     use {
       "famiu/bufdelete.nvim",
       config = function()
-        require("user.plugins.bufdelete").setup()
+        local bufdelete = require("bufdelete")
+        require("user.utils").keymap("n", "<leader>q", function()
+          bufdelete.bufdelete(0, false)
+        end, { desc = "Close Buffer" })
       end
     }
 
@@ -54,6 +57,7 @@ function M.setup()
       end
     }
 
+    -- hop
     use {
       "phaazon/hop.nvim",
       branch = "v2", -- optional but strongly recommended
@@ -71,6 +75,28 @@ function M.setup()
       end,
       event = "BufRead",
     }
+
+    use({
+      "kylechui/nvim-surround",
+      tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+      config = function()
+        require("nvim-surround").setup({
+          keymaps = {
+            insert = false,
+            insert_line = false,
+            normal = "y<leader>s",
+            normal_cur = false,
+            normal_line = false,
+            normal_cur_line = false,
+            visual = "<leader>s",
+            visual_line = false,
+            delete = "d<leader>s",
+            change = "c<leader>s",
+          },
+        })
+      end,
+      event = "BufRead",
+    })
 
     -- nvim-tree
     use("nvim-tree/nvim-web-devicons")

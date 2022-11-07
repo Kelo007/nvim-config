@@ -143,6 +143,7 @@ function M.setup()
     ["<leader>g"] = { name = "+Git" },
     ["<leader>l"] = { name = "+LSP" },
     ["<leader>L"] = { name = "+Log" },
+    ["<leader>s"] = { name = "Surrounding Operator" },
   }
 end
 
