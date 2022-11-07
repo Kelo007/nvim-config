@@ -30,13 +30,6 @@ function M.sync_on_plugins_saved()
       require('packer').sync()
     end
   })
-
-  vim.cmd([[
-    augroup packer_user_config
-      autocmd!
-      autocmd BufWritePost plugins.lua  lua require("user.plugins").setup() | PackerSync
-    augroup end
-  ]])
 end
 
 return M
