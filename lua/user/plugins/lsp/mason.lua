@@ -22,7 +22,7 @@ local settings = {
 require("mason").setup(settings)
 local mason_lspconfig = require("mason-lspconfig")
 local lspconfig = require("lspconfig")
-local handlers = require("user.lsp.handlers")
+local handlers = require("user.plugins.lsp.handlers")
 
 local default_opts = {
   on_attach = handlers.on_attach,

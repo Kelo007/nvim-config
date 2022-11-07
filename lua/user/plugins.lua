@@ -165,7 +165,7 @@ function M.setup()
       "williamboman/mason-lspconfig.nvim",
       after = "mason.nvim",
       config = function()
-        require("user.lsp").setup()
+        require("user.plugins.lsp").setup()
       end,
     }
 
