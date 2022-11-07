@@ -69,8 +69,14 @@ function M.setup()
       completeopt = 'menu,menuone,noinsert'
     },
     mapping = {
-      ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-      ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+      ["<C-k>"] =  cmp.mapping {
+        i = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+        c = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+      },
+      ["<C-j>"] =  cmp.mapping {
+        i = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+        c = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+      },
       ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
       ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
       ["<C-d>"] = cmp.mapping(cmp.mapping.complete(), { "i" }),
