@@ -44,6 +44,34 @@ function M.setup()
       end
     }
 
+    use {
+      "ggandor/leap.nvim",
+      disable = true,
+      config = function()
+        require("leap").add_default_mappings()
+        require("leap").opts.highlight_unlabeled_phase_one_targets = true
+        vim.api.nvim_set_hl(0, 'LeapBackdrop', { link = 'Comment' })
+      end
+    }
+
+    use {
+      "phaazon/hop.nvim",
+      branch = "v2", -- optional but strongly recommended
+      config = function()
+        -- you can configure Hop the way you like here; see :h hop-config
+        local hop = require("hop")
+        hop.setup { keys = "etovxqpdygfblzhckisuran" }
+        local directions = require("hop.hint").HintDirection
+        vim.keymap.set("", "s", function()
+          hop.hint_words({ direction = directions.AFTER_CURSOR })
+        end, { remap = true })
+        vim.keymap.set("", "S", function()
+          hop.hint_words({ direction = directions.BEFORE_CURSOR })
+        end, { remap = true })
+      end,
+      event = "BufRead",
+    }
+
     -- nvim-tree
     use("nvim-tree/nvim-web-devicons")
     use {
