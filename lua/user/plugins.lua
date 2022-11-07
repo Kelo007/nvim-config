@@ -160,15 +160,15 @@ function M.setup()
 
     -- comment
     use {
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      event = "CursorHold",
+    }
+    use {
       "numToStr/Comment.nvim",
       config = function()
         require("user.plugins.comment").setup()
       end,
-      event = "CursorHold",
-    }
-    use {
-      "JoosepAlviste/nvim-ts-context-commentstring",
-      event = "CursorHold",
+      after = "nvim-ts-context-commentstring"
     }
 
     -- gitsigns
@@ -216,4 +216,3 @@ function M.setup()
 end
 
 return M
-
