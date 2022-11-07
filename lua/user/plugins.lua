@@ -155,7 +155,7 @@ function M.setup()
     -- lsp
     use {
       "neovim/nvim-lspconfig",
-      after = "nvim-cmp",
+      after = "cmp-nvim-lsp",
     }
     use {
       "williamboman/mason.nvim",
