@@ -123,6 +123,14 @@ function M.setup()
 
     { "c", "<C-j>", 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true } },
     { "c", "<C-k>", 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true } },
+
+    -- terminal keymap
+    { "t", "<esc>", [[<C-\><C-n>]] },
+    { "t", "jj", [[<C-\><C-n>]] },
+    { "t", "<C-h>", [[<C-\><C-n><C-w>h]] },
+    { "t", "<C-j>", [[<C-\><C-n><C-w>j]] },
+    { "t", "<C-k>", [[<C-\><C-n><C-w>k]] },
+    { "t", "<C-l>", [[<C-\><C-n><C-w>l]] },
   }
 
   local utils = require("user.utils")
