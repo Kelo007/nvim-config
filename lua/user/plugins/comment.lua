@@ -1,16 +1,9 @@
 local M = {}
 
 M.setup = function ()
-  local status_ok, comment = pcall(require, "Comment")
-  if not status_ok then
-    return
-  end
-
-  local pre_hook
-  local loaded, ts_comment = pcall(require, "ts_context_commentstring.integrations.comment_nvim")
-  if loaded and ts_comment then
-    pre_hook = ts_comment.create_pre_hook()
-  end
+  local comment = require("Comment")
+  local ts_comment = require("ts_context_commentstring.integrations.comment_nvim")
+  local pre_hook = ts_comment.create_pre_hook()
 
   comment.setup {
     pre_hook = pre_hook,
