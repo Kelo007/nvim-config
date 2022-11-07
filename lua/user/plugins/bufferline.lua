@@ -62,10 +62,10 @@ function M.setup()
 
   k("n", "<leader>bj", bufferline.pick_buffer, { desc = "Jump" })
   k("n", "<leader>bw", bufferline.close_buffer_with_pick, { desc = "Pick which buffer to close" })
-  k("n", "<leader>bn", function() bufferline.cycle(1) end, { desc = "Next" })
-  k("n", "<leader>bp", function() bufferline.cycle(-1) end, { desc = "Previous" })
-  k("n", "<leader>bh", function() bufferline.close_in_direction("left") end, { desc = "Close all to the left" })
-  k("n", "<leader>bl", function() bufferline.close_in_direction("right") end, { desc = "Close all to the right" })
+  k("n", "<leader>bl", function() bufferline.cycle(1) end, { desc = "Next" })
+  k("n", "<leader>bh", function() bufferline.cycle(-1) end, { desc = "Previous" })
+  k("n", "<leader>bp", function() bufferline.close_in_direction("left") end, { desc = "Close all to the left" })
+  k("n", "<leader>bn", function() bufferline.close_in_direction("right") end, { desc = "Close all to the right" })
 end
 
 return M
