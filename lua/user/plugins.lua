@@ -66,10 +66,10 @@ function M.setup()
         local hop = require("hop")
         hop.setup { keys = "etovxqpdygfblzhckisuran" }
         local directions = require("hop.hint").HintDirection
-        vim.keymap.set("", "s", function()
+        vim.keymap.set({ "n", "v" }, "s", function()
           hop.hint_words({ direction = directions.AFTER_CURSOR })
         end, { remap = true })
-        vim.keymap.set("", "S", function()
+        vim.keymap.set({ "n", "v" }, "S", function()
           hop.hint_words({ direction = directions.BEFORE_CURSOR })
         end, { remap = true })
       end,
