@@ -73,7 +73,7 @@ function M.setup()
           hop.hint_words({ direction = directions.BEFORE_CURSOR })
         end, { remap = true })
       end,
-      event = "BufRead",
+      event = "VimEnter",
     }
 
     use({
@@ -95,7 +95,7 @@ function M.setup()
           },
         })
       end,
-      event = "BufRead",
+      event = "CursorHold",
     })
 
     -- nvim-tree
