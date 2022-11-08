@@ -253,6 +253,12 @@ function M.setup()
     }
 
     use {
+      "nmac427/guess-indent.nvim",
+      config = function() require("guess-indent").setup {} end,
+      event = "BufRead",
+    }
+
+    use {
       "akinsho/toggleterm.nvim",
       tag = 'v2.*',
       config = function()
