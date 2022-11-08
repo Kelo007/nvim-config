@@ -88,7 +88,7 @@ function M.setup()
     { "v", "<A-j>", ":move '>+1<cr>gv=gv" },
     { "v", "<A-k>", ":move '<-2<cr>gv=gv" },
 
-    { "n", "ZA", ":qall<cr>" },
+    { "n", "ZA", ":confirm qall<cr>" },
 
     -- yank
     { "n", "Y", "\"+y" },
