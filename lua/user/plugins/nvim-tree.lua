@@ -52,6 +52,7 @@ function M.setup()
     renderer = {
       highlight_git = false,
       --root_folder_modifier = ":t",
+      group_empty = true,
       icons = {
         glyphs = {
           default = "",
