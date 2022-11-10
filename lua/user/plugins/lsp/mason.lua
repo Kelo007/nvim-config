@@ -43,9 +43,15 @@ mason_lspconfig.setup_handlers({
     lspconfig[server_name].setup(default_opts)
   end,
   -- Next, you can provide targeted overrides for specific servers.
-  --["rust_analyzer"] = function ()
-  --  require("rust-tools").setup {}
-  --end,
+  ["rust_analyzer"] = function ()
+    local status_ok, rust_tools = pcall(require, "rust-tools")
+    if not status_ok then
+      return
+    end
+    rust_tools.setup {
+      server = default_opts
+    }
+  end,
   ["sumneko_lua"] = function()
     local opts = vim.tbl_extend("force", default_opts, {
       settings = {
