@@ -270,6 +270,7 @@ function M.setup()
     -- language specific
     use {
       "simrat39/rust-tools.nvim",
+      event = "BufRead",
     }
 
     -- Automatically set up your configuration after cloning packer.nvim
