@@ -3,9 +3,9 @@ local M = {}
 function M.setup()
   local options = {
     fileformats = "unix,mac,dos",
-    list = true  ,
+    list = true,
     -- listchars="tab: »,nbsp:␣,trail:·,extends:›,precedes:‹",
-    listchars="tab:⎸→,nbsp:␣,trail:·",
+    listchars = "tab:⎸→,nbsp:␣,trail:·",
     backup = false, -- creates a backup file
     -- clipboard = "unnamedplus", -- allows neovim to access the system clipboard
     cmdheight = 1, -- more space in the neovim command line for displaying messages
@@ -99,6 +99,13 @@ function M.setup()
     { "n", "<right>", ":vertical resize +5<cr>" },
     { "n", "<left>", ":vertical resize -5<cr>" },
 
+    { "n", "Q:", "q:" },
+    { "n", "Q/", "q/" },
+    { "n", "Q?", "q?" },
+    { "n", "q:", "<nop>" },
+    { "n", "q/", "<nop>" },
+    { "n", "q?", "<nop>" },
+
     --  {"n", "H", "7h"},
     --  {"n", "J", "5j"},
     --  {"n", "K", "5k"},
@@ -161,4 +168,3 @@ function M.setup()
 end
 
 return M
-
