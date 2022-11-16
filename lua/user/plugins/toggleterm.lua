@@ -24,6 +24,10 @@ function M.setup()
     autochdir = true,
     shade_terminals = false,
     insert_mappings = true,
+    direction = "float",
+    float_opts = {
+      border = "rounded",
+    },
   }
   M.set_term_opts()
 end
