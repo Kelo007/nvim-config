@@ -2,12 +2,10 @@ local M = {}
 local utils = require("user.utils")
 
 local float = {
-  focusable = false,
+  -- focusable = false,
   style = "minimal",
   border = "rounded",
   source = "always",
-  header = "",
-  prefix = "",
 }
 
 local config = {
