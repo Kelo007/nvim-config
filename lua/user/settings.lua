@@ -81,8 +81,8 @@ function M.setup()
 
     { "n", "<S-h>", "<Home>" },
     { "n", "<S-l>", "<End>" },
-    { "v", "<S-h>", "<Home>" },
-    { "v", "<S-l>", "<End>" },
+    { "x", "<S-h>", "<Home>" },
+    { "x", "<S-l>", "<End>" },
 
     { "n", "<A-j>", ":move .+1<cr>==" },
     { "n", "<A-k>", ":move .-2<cr>==" },
