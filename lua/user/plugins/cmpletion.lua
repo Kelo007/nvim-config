@@ -115,7 +115,8 @@ function M.setup()
         if luasnip.jumpable(1) then
           luasnip.jump(1)
         else
-          fallback()
+          -- do not insert words "<C-;>"
+          -- fallback()
         end
       end, {
         "i",
@@ -125,7 +126,8 @@ function M.setup()
         if luasnip.jumpable(-1) then
           luasnip.jump(-1)
         else
-          fallback()
+          -- do not insert words "<C-,>"
+          -- fallback()
         end
       end, {
         "i",
