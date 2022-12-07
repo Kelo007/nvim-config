@@ -22,6 +22,8 @@ function M.setup()
       Search = { fg = "#a5b0c5", bg = "#25747d" },
       -- fg = c.bg0, bg = c.orange
       IncSearch = { fg = "#242b38", bg = "#d99a5e" },
+      ["@field"] = { fg = "#ef5f6b" },
+      ["@property"] = { fg = "#ef5f6b" },
     },
   }
   onedark.load()
