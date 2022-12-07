@@ -111,7 +111,7 @@ function M.setup()
         "i",
         "s",
       }),
-      ["<C-;>"] = cmp.mapping(function(fallback)
+      ["<C-;>"] = cmp.mapping(function(_)
         if luasnip.jumpable(1) then
           luasnip.jump(1)
         else
@@ -122,7 +122,7 @@ function M.setup()
         "i",
         "s",
       }),
-      ["<C-,>"] = cmp.mapping(function(fallback)
+      ["<C-,>"] = cmp.mapping(function(_)
         if luasnip.jumpable(-1) then
           luasnip.jump(-1)
         else
@@ -133,6 +133,17 @@ function M.setup()
         "i",
         "s",
       }),
+      ["<bs>"] = cmp.mapping(function(_)
+        local keys = vim.api.nvim_replace_termcodes("<bs>i", true, false, true)
+        vim.api.nvim_feedkeys(keys, "n", false)
+        vim.schedule(function()
+          cmp.complete {
+            config = {
+              sources = { { name = "nvim_lsp_signature_help" } }
+            }
+          }
+        end)
+      end, { "s" }),
     },
     formatting = {
       fields = { "kind", "abbr", "menu" },
