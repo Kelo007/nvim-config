@@ -135,8 +135,10 @@ function M.setup()
 
     { "n", "<leader>Ln", ":edit $NVIM_LOG_FILE<cr>", { desc = "Neovim Logfile" } },
 
-    { "c", "<C-j>", 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true } },
-    { "c", "<C-k>", 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true } },
+    -- { "c", "<C-j>", 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true } },
+    -- { "c", "<C-k>", 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true } },
+    { "c", "<C-j>", "<C-n>" },
+    { "c", "<C-k>", "<C-p>" },
 
     -- terminal keymap
     { "t", "<esc>", [[<C-\><C-n>]] },
