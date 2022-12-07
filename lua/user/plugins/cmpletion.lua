@@ -145,6 +145,7 @@ function M.setup()
         -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
         vim_item.menu = ({
           nvim_lsp = "[LSP]",
+          nvim_lsp_signature_help = "[LSP_SH]",
           nvim_lua = "[NVIM_LUA]",
           luasnip = "[Snippet]",
           buffer = "[Buffer]",
@@ -155,6 +156,7 @@ function M.setup()
     },
     sources = {
       { name = "nvim_lsp" },
+      { name = "nvim_lsp_signature_help" },
       { name = "nvim_lua" },
       { name = "luasnip" },
       { name = "buffer" },
