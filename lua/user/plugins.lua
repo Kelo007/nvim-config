@@ -240,12 +240,14 @@ function M.setup()
     use {
       "lukas-reineke/indent-blankline.nvim",
       config = function()
-        require("indent_blankline").setup {
+        local indent = require("indent_blankline")
+        indent.setup {
           char = "▏",
           --char = "⎸",
           show_current_context_start = false,
           show_trailing_blankline_indent = false,
         }
+        indent.refresh(false)
       end,
       -- event = "BufWinEnter",
       -- issue with starting page
