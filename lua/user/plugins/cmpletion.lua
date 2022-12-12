@@ -134,7 +134,7 @@ function M.setup()
         "s",
       }),
       ["<bs>"] = cmp.mapping(function(_)
-        local keys = vim.api.nvim_replace_termcodes("<bs>i", true, false, true)
+        local keys = vim.api.nvim_replace_termcodes("<C-o>c", true, false, true)
         vim.api.nvim_feedkeys(keys, "n", false)
         vim.schedule(function()
           cmp.complete {
