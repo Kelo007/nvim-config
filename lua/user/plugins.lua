@@ -163,12 +163,20 @@ function M.setup()
       after = "nvim-lspconfig",
     }
     use {
+      "j-hui/fidget.nvim",
+      after = "mason.nvim",
+      config = function()
+        require("fidget").setup()
+      end
+    }
+    use {
       "williamboman/mason-lspconfig.nvim",
       after = "mason.nvim",
       config = function()
         require("user.plugins.lsp").setup()
       end,
     }
+
 
     -- telescope
     use {
