@@ -4,7 +4,7 @@ local M = {
   event = "VeryLazy",
 }
 
-function M.set_term_opts()
+local function set_term_opts()
   vim.api.nvim_create_augroup("set_term_opts", { clear = true })
   vim.api.nvim_create_autocmd("TermOpen", {
     --pattern = "term://*toggleterm*",
@@ -33,7 +33,7 @@ function M.config()
       border = "rounded",
     },
   }
-  M.set_term_opts()
+  set_term_opts()
 end
 
 return M

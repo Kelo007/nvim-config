@@ -1,9 +1,9 @@
 local M = {
   "jose-elias-alvarez/null-ls.nvim",
-  enable = false,
+  enabled = false,
 }
 
-function M.setup()
+function M.config()
   local null_ls = require("null-ls")
   null_ls.setup {}
 end
