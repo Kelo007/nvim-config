@@ -1,6 +1,13 @@
-local M = {}
+local M = {
+  "nvim-treesitter/nvim-treesitter",
+  dependencies = {
+    -- { "nvim-treesitter/playground" },
+  },
+  build = ":TSUpdate",
+  event = "VeryLazy",
+}
 
-function M.setup()
+function M.config()
   require("nvim-treesitter.configs").setup {
     -- A list of parser names, or "all"
     ensure_installed = {},

@@ -70,9 +70,6 @@ function M.setup()
 
   local keymap_opts = { noremap = true, silent = true }
 
-  vim.g.mapleader = " "
-  vim.g.maplocalleader = " "
-
   local keymaps = {
     { "n", "<C-h>", "<C-w>h" },
     { "n", "<C-j>", "<C-w>j" },

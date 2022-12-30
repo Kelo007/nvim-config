@@ -1,4 +1,8 @@
-local M = {}
+local M = {
+  "akinsho/toggleterm.nvim",
+  version = "v2.*",
+  event = "VeryLazy",
+}
 
 function M.set_term_opts()
   vim.api.nvim_create_augroup("set_term_opts", { clear = true })
@@ -17,7 +21,7 @@ function M.set_term_opts()
   })
 end
 
-function M.setup()
+function M.config()
   local toogleterm = require("toggleterm")
   toogleterm.setup {
     open_mapping = [[<c-\>]],

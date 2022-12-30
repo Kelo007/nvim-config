@@ -1,7 +1,7 @@
---require("impatient").enable_profile()
-pcall(require, "impatient")
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
+require("user.lazy").setup()
 require("user.settings").setup()
-require("user.plugins").setup()
 require("user.ui").setup()
 

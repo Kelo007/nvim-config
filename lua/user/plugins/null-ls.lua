@@ -1,4 +1,7 @@
-local M = {}
+local M = {
+  "jose-elias-alvarez/null-ls.nvim",
+  enable = false,
+}
 
 function M.setup()
   local null_ls = require("null-ls")
