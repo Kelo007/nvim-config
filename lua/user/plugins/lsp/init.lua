@@ -13,7 +13,7 @@ function M.config()
   require("user.plugins.lsp.mason")
   require("user.plugins.lsp.handlers").setup()
   require("fidget").setup()
-  vim.cmd "silent! do FileType"
+  vim.cmd("silent! do FileType")
 end
 
 return M
