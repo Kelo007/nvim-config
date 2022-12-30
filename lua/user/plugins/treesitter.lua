@@ -4,7 +4,7 @@ local M = {
     -- { "nvim-treesitter/playground" },
   },
   build = ":TSUpdate",
-  event = "VeryLazy",
+  event = { "BufRead", "VeryLazy" },
 }
 
 function M.config()
