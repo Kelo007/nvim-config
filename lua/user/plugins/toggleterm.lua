@@ -1,6 +1,10 @@
-local M = {}
+local M = {
+  "akinsho/toggleterm.nvim",
+  version = "v2.*",
+  event = "VeryLazy",
+}
 
-function M.set_term_opts()
+local function set_term_opts()
   vim.api.nvim_create_augroup("set_term_opts", { clear = true })
   vim.api.nvim_create_autocmd("TermOpen", {
     --pattern = "term://*toggleterm*",
@@ -17,7 +21,7 @@ function M.set_term_opts()
   })
 end
 
-function M.setup()
+function M.config()
   local toogleterm = require("toggleterm")
   toogleterm.setup {
     open_mapping = [[<c-\>]],
@@ -29,7 +33,7 @@ function M.setup()
       border = "rounded",
     },
   }
-  M.set_term_opts()
+  set_term_opts()
 end
 
 return M

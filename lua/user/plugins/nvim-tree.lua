@@ -1,6 +1,18 @@
-local M = {}
+local M = {
+  "nvim-tree/nvim-tree.lua",
+  dependencies = {
+    "nvim-tree/nvim-web-devicons"
+  },
+  event = "VeryLazy",
+}
 
-function M.setup()
+function M.init()
+  -- hijack netrw
+  vim.cmd "silent! autocmd! FileExplorer *"
+  vim.cmd "autocmd VimEnter * ++once silent! autocmd! FileExplorer *"
+end
+
+function M.config()
   local nvim_tree = require("nvim-tree")
   nvim_tree.setup {
     disable_netrw = true,

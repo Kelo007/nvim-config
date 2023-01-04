@@ -1,11 +1,15 @@
-local M = {}
+local M = {
+  "nvim-lualine/lualine.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  event = "VimEnter",
+}
 
 local function spaces()
   local expandtab = vim.api.nvim_buf_get_option(0, "expandtab")
   return (expandtab and "S" or "T") .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
 
-function M.setup()
+function M.config()
   local lualine = require("lualine")
   -- change onedark theme
   local onedark = require("lualine.themes.onedark")

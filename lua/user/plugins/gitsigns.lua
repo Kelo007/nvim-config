@@ -1,6 +1,9 @@
-local M = {}
+local M = {
+  "lewis6991/gitsigns.nvim",
+  event = "VeryLazy",
+}
 
-M.setup = function()
+function M.config()
   local gitsigns = require("gitsigns")
   gitsigns.setup {
     signs = {

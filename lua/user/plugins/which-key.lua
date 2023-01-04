@@ -1,6 +1,9 @@
-local M = {}
+local M = {
+  "folke/which-key.nvim",
+  event = "VeryLazy",
+}
 
-function M.setup()
+function M.config()
   local which_key = require("which-key")
 
 

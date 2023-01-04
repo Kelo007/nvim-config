@@ -1,6 +1,11 @@
-local M = {}
+local M = {
+  "akinsho/bufferline.nvim",
+  version = "v3.*",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  event = "VimEnter",
+}
 
-function M.setup()
+function M.config()
   local bufferline = require("bufferline")
 
   bufferline.setup {
