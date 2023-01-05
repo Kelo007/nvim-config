@@ -15,7 +15,8 @@ return {
     keys = {
       {
         "<leader>q", function()
-          require("bufdelete").bufdelete(0, false)
+          local force = vim.api.nvim_buf_get_option(0, "buftype") == "terminal"
+          require("bufdelete").bufdelete(0, force)
         end, desc = "Close Buffer"
       }
     },
