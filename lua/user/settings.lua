@@ -16,6 +16,7 @@ function M.setup()
     conceallevel = 0, -- so that `` is visible in markdown files
     -- can not change in unmodifyable mode
     -- fileencoding = "utf-8", -- the encoding written to a file
+    fileencodings = "utf-8,ucs-bom,gb18030,gbk,gb2312,cp936",
     hlsearch = true, -- highlight all matches on previous search pattern
     ignorecase = true, -- ignore case in search patterns
     mouse = "a", -- allow the mouse to be used in neovim

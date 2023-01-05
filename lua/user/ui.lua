@@ -3,7 +3,7 @@ local M = {}
 function M.setup()
   local cmds = [[
     nohls
-    lang en_US
+    language message en_US
   ]]
 
   -- it may fall, so use pcall
