@@ -139,7 +139,6 @@ function M.setup()
 
     -- terminal keymap
     { "t", "<esc>", [[<C-\><C-n>]] },
-    { "t", "jj", [[<C-\><C-n>]] },
     { "t", "<C-h>", [[<C-\><C-n><C-w>h]] },
     { "t", "<C-j>", [[<C-\><C-n><C-w>j]] },
     { "t", "<C-k>", [[<C-\><C-n><C-w>k]] },
