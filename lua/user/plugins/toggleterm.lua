@@ -79,9 +79,9 @@ function M.config()
     },
   }
   create_terminal("<C-\\>", "float", 100, 1)
-  create_terminal("<C-8>", "vertical", 101, 1)
-  create_terminal("<C-9>", "horizontal", 102, 1)
-  create_terminal("<C-0>", "horizontal", 103, 2)
+  create_terminal("<C-0>", "vertical", 101, 1)
+  create_terminal("<C-->", "horizontal", 102, 1)
+  create_terminal("<C-=>", "horizontal", 103, 2)
   set_term_opts()
 end
 
