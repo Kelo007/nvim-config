@@ -10,6 +10,7 @@ local M = {
     -- "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-nvim-lsp-signature-help",
     "saadparwaiz1/cmp_luasnip",
+    { "zbirenbaum/copilot-cmp", config = true },
   },
   event = { "VeryLazy", "InsertEnter" }
 }
@@ -69,6 +70,7 @@ function M.config()
     Unit = "",
     Value = "",
     Variable = "",
+    Copilot = "",
   };
   -- find more here: https://www.nerdfonts.com/cheat-sheet
 
@@ -171,6 +173,7 @@ function M.config()
         vim_item.menu = ({
           nvim_lsp = "[LSP]",
           nvim_lsp_signature_help = "[LSP_SH]",
+          copilot = "[Copilot]",
           nvim_lua = "[NVIM_LUA]",
           luasnip = "[Snippet]",
           buffer = "[Buffer]",
@@ -182,21 +185,23 @@ function M.config()
     sources = {
       { name = "nvim_lsp" },
       { name = "nvim_lsp_signature_help" },
+      { name = "copilot" },
       { name = "nvim_lua" },
       { name = "luasnip" },
       { name = "buffer" },
       { name = "path" },
     },
-    confirm_opts = {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = false,
+    confirmation = {
+      default_behavior = cmp.ConfirmBehavior.Replace,
     },
     window = {
       documentation = cmp.config.window.bordered(),
     },
+    view = {
+      -- entries = "native",
+    },
     experimental = {
       ghost_text = true,
-      --native_menu = true,
     },
   }
 end
