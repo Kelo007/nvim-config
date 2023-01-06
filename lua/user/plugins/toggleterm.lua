@@ -70,7 +70,7 @@ end
 function M.config()
   local toogleterm = require("toggleterm")
   toogleterm.setup {
-    open_mapping = [[<nop>]],
+    open_mapping = [[C-\]],
     autochdir = true,
     shade_terminals = false,
     direction = "float",
