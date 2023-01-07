@@ -29,7 +29,8 @@ function M.config()
         MatchParen = { fg = C.peach, bg = C.surface2, style = { "bold" } }
         -- WhichKeyFloat = { bg = C.mantle },
       }
-    end
+    end,
+    compile_path = vim.fn.stdpath "cache" .. "/catppuccin",
   }
   vim.cmd.colorscheme "catppuccin"
 end
