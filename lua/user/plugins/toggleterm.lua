@@ -6,7 +6,7 @@ local M = {
 
 local function set_term_opts()
   vim.api.nvim_create_augroup("set_term_opts", { clear = true })
-  vim.api.nvim_create_autocmd("TermOpen", {
+  vim.api.nvim_create_autocmd("BufEnter", {
     --pattern = "term://*toggleterm*",
     pattern = "term://*",
     callback = function()
@@ -17,6 +17,8 @@ local function set_term_opts()
 
       vim.api.nvim_win_set_option(0, "number", false)
       vim.api.nvim_win_set_option(0, "relativenumber", false)
+      vim.api.nvim_win_set_option(0, "scrolloff", 0)
+      vim.api.nvim_win_set_option(0, "sidescrolloff", 0)
     end
   })
 end

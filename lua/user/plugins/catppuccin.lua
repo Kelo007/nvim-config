@@ -7,7 +7,7 @@ local M = {
 function M.config()
   local catppuccin = require("catppuccin")
   catppuccin.setup {
-    term_colors = true,
+    term_colors = false,
     integrations = {
       cmp = true,
       hop = true,
