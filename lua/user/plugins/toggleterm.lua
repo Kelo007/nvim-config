@@ -34,12 +34,14 @@ end
 
 local function toggle_all_terminal(terminal_list)
   local is_open = any_terminal_open(terminal_list)
-  for _, term in pairs(terminal_list) do
-    if is_open then
-      term:close()
-    else
-      term:open()
-    end
+  for i, term in pairs(terminal_list) do
+    vim.defer_fn(function()
+      if is_open then
+        term:close()
+      else
+        term:open()
+      end
+    end, i * 5)
   end
 end
 
