@@ -9,18 +9,6 @@ return {
   --   lazy = false,
   --   priority = 1000,
   -- },
-  {
-    "famiu/bufdelete.nvim",
-    keys = {
-      {
-        "<leader>q", function()
-          local force = vim.api.nvim_buf_get_option(0, "buftype") == "terminal"
-          require("bufdelete").bufdelete(0, force)
-        end, desc = "Close Buffer"
-      }
-    },
-    cmd = { "Bdelete", "Bwipeout" }
-  },
 
   {
     "ggandor/leap.nvim",
