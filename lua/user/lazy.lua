@@ -17,6 +17,10 @@ function M.setup()
 
   require("lazy").setup("user.plugins", {
     defaults = { lazy = true },
+    change_detection = {
+      notify = false,
+    },
+    ui = { border = "rounded" },
     rtp = {
       disabled_plugins = {
         "gzip",
@@ -27,7 +31,6 @@ function M.setup()
         "tohtml",
         "tutor",
         "zipPlugin",
-        "nvim-treesitter-textobjects",
       },
     },
   })

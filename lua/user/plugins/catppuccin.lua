@@ -25,9 +25,10 @@ function M.config()
     custom_highlights = function(C)
       return {
         IndentBlanklineChar = { fg = C.surface1 },
-        FidgetTask = { bg = C.none, fg = C.text },
-        MatchParen = { fg = C.peach, bg = C.surface2, style = { "bold" } }
-        -- WhichKeyFloat = { bg = C.mantle },
+        FidgetTask = { bg = C.none },
+        MatchParen = { bg = C.surface2 },
+        NormalFloat = { bg = C.none },
+        Pmenu = { bg = C.surface0 },
       }
     end,
     compile_path = vim.fn.stdpath "cache" .. "/catppuccin",
