@@ -24,7 +24,7 @@ function M.config()
     },
     custom_highlights = function(C)
       return {
-        IndentBlanklineChar = { fg = C.surface1 },
+        IndentBlanklineChar = { fg = C.overlay0, bg = C.none },
         FidgetTask = { bg = C.none },
         MatchParen = { bg = C.surface2 },
         NormalFloat = { bg = C.none },
