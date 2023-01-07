@@ -1,15 +1,6 @@
 local M = {}
 
-function M.setup()
-  local cmds = [[
-    nohls
-    language message en_US
-  ]]
-
-  -- it may fall, so use pcall
-  pcall(vim.cmd, cmds)
-
-  -- load colorscheme
+local function setup_onedark()
   local status_ok, onedark = pcall(require, "onedark")
   if not status_ok then
     return
@@ -28,6 +19,16 @@ function M.setup()
   }
   onedark.load()
   vim.api.nvim_set_hl(0, "CurSearch", { link = "IncSearch" })
+end
+
+function M.setup()
+  local cmds = [[
+    nohls
+    language message en_US
+  ]]
+
+  -- it may fall, so use pcall
+  pcall(vim.cmd, cmds)
 end
 
 return M

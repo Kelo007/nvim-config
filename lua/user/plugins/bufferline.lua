@@ -9,6 +9,7 @@ function M.config()
   local bufferline = require("bufferline")
 
   bufferline.setup {
+    highlights = require("catppuccin.groups.integrations.bufferline").get(),
     options = {
       mode = "buffers",
       close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions" right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
@@ -18,38 +19,38 @@ function M.config()
       middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
       diagnostics = false,
       indicator = {
-        icon = '', -- this should be omitted if indicator style is not 'icon'
-        style = 'icon',
+        icon = "▏", -- this should be omitted if indicator style is not 'icon'
+        style = "icon",
       },
       offsets = {
         {
           filetype = "undotree",
           text = "Undotree",
           highlight = "PanelHeading",
-          padding = 1,
+          -- padding = 1,
         },
         {
           filetype = "NvimTree",
           text = "Explorer",
           highlight = "PanelHeading",
-          padding = 1,
+          -- padding = 1,
         },
         {
           filetype = "DiffviewFiles",
           text = "Diff View",
           highlight = "PanelHeading",
-          padding = 1,
+          -- padding = 1,
         },
         {
           filetype = "flutterToolsOutline",
           text = "Flutter Outline",
-          highlight = "PanelHeading",
+          -- highlight = "PanelHeading",
         },
         {
           filetype = "packer",
           text = "Packer",
           highlight = "PanelHeading",
-          padding = 1,
+          -- padding = 1,
         },
       },
       hover = {

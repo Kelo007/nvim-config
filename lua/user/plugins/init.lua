@@ -4,12 +4,11 @@ return {
   "nvim-tree/nvim-web-devicons",
 
   -- colorschemes
-  {
-    "navarasu/onedark.nvim",
-    lazy = false,
-    priority = 1000,
-  },
-
+  -- {
+  --   "navarasu/onedark.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  -- },
   {
     "famiu/bufdelete.nvim",
     keys = {
@@ -79,6 +78,7 @@ return {
       indent.setup {
         char = "▏",
         --char = "⎸",
+        show_current_context = false,
         show_current_context_start = false,
         show_trailing_blankline_indent = false,
       }

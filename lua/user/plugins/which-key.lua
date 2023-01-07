@@ -6,7 +6,6 @@ local M = {
 function M.config()
   local which_key = require("which-key")
 
-
   local _ = {
     mode = "n", -- NORMAL mode
     prefix = "<leader>",
@@ -122,7 +121,7 @@ function M.config()
 
   which_key.setup {
     window = {
-      border = "single", -- none, single, double, shadow
+      border = "none", -- none, single, double, shadow
     },
     plugins = {
       spelling = {
