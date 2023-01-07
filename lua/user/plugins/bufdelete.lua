@@ -1,4 +1,4 @@
-local filetype_close = { "NvimTree", "help", "TelescopePrompt" }
+local filetype_close = { "NvimTree", "help", "TelescopePrompt", "qf" }
 
 local function quit()
   local filetype = vim.api.nvim_buf_get_option(0, "filetype")
