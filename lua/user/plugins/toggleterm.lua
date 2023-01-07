@@ -43,7 +43,7 @@ local function toggle_all_terminal(terminal_list)
       else
         term:open()
       end
-    end, i * 5)
+    end, (i - 1) * 5)
   end
 end
 
@@ -74,6 +74,13 @@ end
 function M.config()
   local toogleterm = require("toggleterm")
   toogleterm.setup {
+    size = function(term)
+      if term.direction == "horizontal" then
+        return vim.o.lines * 0.4
+      elseif term.direction == "vertical" then
+        return vim.o.columns * 0.4
+      end
+    end,
     open_mapping = nil,
     autochdir = true,
     shade_terminals = false,
