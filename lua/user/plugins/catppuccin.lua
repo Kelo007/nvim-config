@@ -6,6 +6,7 @@ local M = {
 
 function M.config()
   local catppuccin = require("catppuccin")
+  local U = require("catppuccin.utils.colors")
   catppuccin.setup {
     term_colors = false,
     integrations = {
@@ -24,7 +25,7 @@ function M.config()
     },
     custom_highlights = function(C)
       return {
-        IndentBlanklineChar = { fg = C.surface2, bg = C.none },
+        IndentBlanklineChar = { fg = U.lighten(C.surface0, 0.8, C.surface2) },
         FidgetTask = { bg = C.none },
         MatchParen = { bg = C.surface2 },
         NormalFloat = { bg = C.none },
