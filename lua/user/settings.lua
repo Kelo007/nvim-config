@@ -128,7 +128,18 @@ function M.setup()
     { "n", "<leader>w", ":write<cr>", { desc = "Save" } },
     { "n", "<leader>q", ":quit<cr>", { desc = "Close Buffer" } },
     { "n", "<leader>c", ":close<cr>", { desc = "Close Window" } },
-    { "n", "<leader>h", ":nohls<cr>", { desc = "No Highlight" } },
+    { "n", "<leader>h", function()
+      if vim.v.hlsearch == 1 then
+        vim.cmd("nohlsearch")
+      else
+        local cword = vim.fn.expand("<cword>")
+        if cword == nil or #cword == 0 then
+          return
+        end
+        vim.fn.setreg("/", "\\<" .. cword .. "\\>")
+        vim.o.hlsearch = true
+      end
+    end, { desc = "Highlight" } },
     { "n", "<leader>e", ":Lex 30<cr>", { desc = "Toggle Explorer" } },
 
     { "n", "<leader>Ln", ":edit $NVIM_LOG_FILE<cr>", { desc = "Neovim Logfile" } },

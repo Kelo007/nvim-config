@@ -22,6 +22,7 @@ function M.config()
       telescope = true,
       treesitter = true,
       which_key = true,
+      illuminate = true,
       indent_blankline = {
         enabled = true,
         colored_indent_levels = false,
