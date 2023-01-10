@@ -8,6 +8,11 @@ function M.config()
   local catppuccin = require("catppuccin")
   local U = require("catppuccin.utils.colors")
   catppuccin.setup {
+    flavour = "macchiato",
+    background = {
+      light = "latte",
+      dark = "macchiato",
+    },
     term_colors = false,
     integrations = {
       cmp = true,
@@ -25,16 +30,18 @@ function M.config()
     },
     custom_highlights = function(C)
       return {
-        IndentBlanklineChar = { fg = U.lighten(C.surface0, 0.8, C.surface2) },
+        IndentBlanklineChar = { fg = C.surface1 },
         FidgetTask = { bg = C.none },
         MatchParen = { bg = C.surface2 },
         NormalFloat = { bg = C.none },
         Pmenu = { bg = C.surface0 },
+        Visual = { bg = C.surface0 },
+        VisualNOS = { bg = C.surface0 },
       }
     end,
     compile_path = vim.fn.stdpath "cache" .. "/catppuccin",
   }
-  vim.cmd.colorscheme "catppuccin"
+  vim.cmd.colorscheme "catppuccin-macchiato"
 end
 
 return M
