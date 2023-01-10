@@ -25,6 +25,11 @@ function M.config()
         g = true,
       },
     },
+    triggers_blacklist = {
+      i = { "j", "k" },
+      v = { "j", "k" },
+      n = { "y", "d", "c" }
+    },
   }
   which_key.register {
     ["<leader>b"] = { name = "+Buffer" },

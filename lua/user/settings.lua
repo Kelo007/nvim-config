@@ -92,6 +92,7 @@ function M.setup()
 
     -- yank
     { "n", "Y", "\"+y" },
+    { "n", "YY", "\"+yy" },
     { "v", "Y", "\"+y" },
 
     { "n", "<up>", ":resize +5<cr>" },
