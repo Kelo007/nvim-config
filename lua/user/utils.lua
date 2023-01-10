@@ -49,6 +49,7 @@ function M.open_logfile(filename)
 end
 
 M.icons = {
+  --   פּ ﯟ   some other good icons
   kind = {
     Array = "",
     Boolean = "蘒",
@@ -84,6 +85,7 @@ M.icons = {
     Unit = "",
     Value = "",
     Variable = "",
+    -- find more here: https://www.nerdfonts.com/cheat-sheet
   },
   git = {
     LineAdded = "",

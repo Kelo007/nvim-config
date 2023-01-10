@@ -29,7 +29,6 @@ function M.config()
       section_separators = "",
       component_separators = "",
       theme = get_theme(),
-      --disabled_filetypes = { "dashboard", "NvimTree", "Outline" },
       globalstatus = true,
     },
     sections = {

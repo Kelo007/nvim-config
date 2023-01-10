@@ -20,9 +20,9 @@ function M.config()
   local esc = vim.api.nvim_replace_termcodes(
     '<ESC>', true, false, true
   )
-  local k = require("user.utils").keymap
-  k("n", "<leader>/", api.toggle.linewise.current, { desc = "Comment Toggle" })
-  k("v", "<leader>/", function()
+  local keymap = require("user.utils").keymap
+  keymap("n", "<leader>/", api.toggle.linewise.current, { desc = "Comment Toggle" })
+  keymap("v", "<leader>/", function()
     vim.api.nvim_feedkeys(esc, 'nx', false)
     api.toggle.linewise(vim.fn.visualmode())
   end, { desc = "Comment Toggle" })

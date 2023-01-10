@@ -6,7 +6,6 @@ local M = {
 
 function M.config()
   local catppuccin = require("catppuccin")
-  local U = require("catppuccin.utils.colors")
   catppuccin.setup {
     flavour = "macchiato",
     background = {
@@ -39,7 +38,6 @@ function M.config()
         VisualNOS = { bg = C.surface0 },
       }
     end,
-    compile_path = vim.fn.stdpath "cache" .. "/catppuccin",
   }
   vim.cmd.colorscheme "catppuccin-macchiato"
 end

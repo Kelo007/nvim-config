@@ -45,14 +45,14 @@ return {
         keymaps = {
           insert = false,
           insert_line = false,
-          normal = "y<leader>s",
+          normal = "ygs",
           normal_cur = false,
           normal_line = false,
           normal_cur_line = false,
-          visual = "<leader>s",
+          visual = "gs",
           visual_line = false,
-          delete = "d<leader>s",
-          change = "c<leader>s",
+          delete = "dgs",
+          change = "cgs",
         },
       })
     end,

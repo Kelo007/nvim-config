@@ -5,20 +5,28 @@ local M = {
 }
 
 local function set_term_opts()
-  vim.api.nvim_create_augroup("set_term_opts", { clear = true })
-  vim.api.nvim_create_autocmd("BufEnter", {
-    --pattern = "term://*toggleterm*",
+  local utils = require("user.utils")
+  local opts = { buffer = 0 }
+  utils.keymap({ "t", "n" }, "<ScrollWheelLeft>", "<nop>", opts)
+  utils.keymap({ "t", "n" }, "<ScrollWheelRight>", "<nop>", opts)
+
+  vim.api.nvim_win_set_option(0, "number", false)
+  vim.api.nvim_win_set_option(0, "relativenumber", false)
+  vim.api.nvim_win_set_option(0, "scrolloff", 0)
+  vim.api.nvim_win_set_option(0, "sidescrolloff", 0)
+end
+
+local function set_term_autocmd()
+  local group = vim.api.nvim_create_augroup("SetTermAutoCmd", { clear = true })
+  vim.api.nvim_create_autocmd("TermOpen", {
+    group = group,
     pattern = "term://*",
     callback = function()
-      local utils = require("user.utils")
-      local opts = { buffer = 0 }
-      utils.keymap({ "t", "n" }, "<ScrollWheelLeft>", "<nop>", opts)
-      utils.keymap({ "t", "n" }, "<ScrollWheelRight>", "<nop>", opts)
-
-      vim.api.nvim_win_set_option(0, "number", false)
-      vim.api.nvim_win_set_option(0, "relativenumber", false)
-      vim.api.nvim_win_set_option(0, "scrolloff", 0)
-      vim.api.nvim_win_set_option(0, "sidescrolloff", 0)
+      set_term_opts()
+      -- vim.api.nvim_create_autocmd("BufEnter", {
+      --   buffer = 0,
+      --   callback = set_term_opts,
+      -- })
     end
   })
 end
@@ -93,7 +101,7 @@ function M.config()
   create_terminal("<C-0>", "vertical", 101, 1)
   create_terminal("<C-->", "horizontal", 102, 1)
   create_terminal("<C-=>", "horizontal", 103, 2)
-  set_term_opts()
+  set_term_autocmd()
 end
 
 return M
