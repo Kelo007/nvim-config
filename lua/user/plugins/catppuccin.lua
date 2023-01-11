@@ -41,6 +41,7 @@ function M.config()
         Pmenu = { bg = C.surface0 },
         Visual = { bg = C.surface0 },
         VisualNOS = { bg = C.surface0 },
+        MsgArea = { bg = C.crust },
       }
     end,
   }
