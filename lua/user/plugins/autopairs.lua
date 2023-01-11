@@ -7,7 +7,7 @@ function M.config()
   local npairs = require("nvim-autopairs")
   npairs.setup {
     check_ts = true,
-    enable_check_bracket_line = false,
+    enable_check_bracket_line = true,
     ts_config = {
       lua = { "string", "source" },
       javascript = { "string", "template_string" },
