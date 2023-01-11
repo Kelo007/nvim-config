@@ -26,7 +26,10 @@ function M.config()
           ["<C-k>"] = actions.move_selection_previous,
         },
         n = {
-          ["q"] = actions.close,
+          ["q"] = {
+            actions.close, type = "action",
+            opts = { nowait = true }
+          },
         },
       },
     },
