@@ -83,6 +83,8 @@ function M.setup()
     { "x", "<S-h>", "<Home>" },
     { "x", "<S-l>", "<End>" },
 
+    { "n", "gL", "`\"", { desc = "Go to last exited current buffer line" } },
+
     { "n", "<A-j>", ":move .+1<cr>==" },
     { "n", "<A-k>", ":move .-2<cr>==" },
     { "v", "<A-j>", ":move '>+1<cr>gv=gv" },

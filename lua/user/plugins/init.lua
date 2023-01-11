@@ -76,6 +76,39 @@ return {
   },
 
   {
+    "RRethy/vim-illuminate",
+    opts = {
+      delay = 200,
+      filetypes_denylist = {
+        "NvimTree",
+        "packer",
+        "lazy",
+        "mason",
+        "toggleterm",
+        "TelescopePrompt",
+      },
+    },
+    init = function()
+      -- override python's keymap
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "python",
+        callback = function ()
+          vim.keymap.del({ "n", "v" }, "]]", { buffer = 0 })
+          vim.keymap.del({ "n", "v" }, "[[", { buffer = 0 })
+        end
+      })
+    end,
+    config = function(_, opts)
+      require("illuminate").configure(opts)
+    end,
+    keys = {
+      { "]]", function() require("illuminate").goto_next_reference(false) end, desc = "Next Reference", mode = { "n", "x" }},
+      { "[[", function() require("illuminate").goto_prev_reference(false) end, desc = "Prev Reference", mode = { "n", "x" } },
+    },
+    event = "VeryLazy",
+  },
+
+  {
     "nmac427/guess-indent.nvim",
     config = true,
     event = "BufReadPost",
