@@ -120,5 +120,12 @@ return {
     ft = "rust",
   },
 
-  { "ellisonleao/glow.nvim", cmd = "Glow" },
+  {
+    "ellisonleao/glow.nvim",
+    opts = {
+      height_ratio = 0.8,
+    },
+    config = true,
+    cmd = "Glow",
+  },
 }
