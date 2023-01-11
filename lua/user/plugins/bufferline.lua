@@ -25,7 +25,7 @@ function M.config()
           filetype = "NvimTree",
           text = "Explorer",
           highlight = "PanelHeading",
-          -- padding = 1,
+          padding = 1,
         },
       },
       hover = {

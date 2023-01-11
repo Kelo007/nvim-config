@@ -32,6 +32,10 @@ function M.config()
       return {
         IndentBlanklineChar = { fg = C.surface1 },
         FidgetTask = { bg = C.none },
+        NvimTreeWinSeparator = { bg = C.mantle, fg = C.mantle },
+        NvimTreeGitDirty = { fg = C.yellow, style = { "underdotted" }},
+        NvimTreeGitNew = { fg = C.blue, style = { "underline" } },
+        NvimTreeGitDeleted = { fg = C.red, style = { "undercurl" } },
         MatchParen = { bg = C.surface2 },
         NormalFloat = { bg = C.none },
         Pmenu = { bg = C.surface0 },

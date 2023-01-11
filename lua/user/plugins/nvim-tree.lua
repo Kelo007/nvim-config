@@ -24,7 +24,7 @@ function M.config()
       enable = true,
     },
     git = {
-      enable = false,
+      enable = true,
     },
     trash = {
       -- need `trash` dependencies
@@ -35,7 +35,8 @@ function M.config()
       mappings = {
         custom_only = false,
         list = {
-          { key = "h", action = "close_node" },
+          { key = "H", action = "close_node" },
+          { key = "L", action = "edit" },
           { key = "v", action = "vsplit" },
           { key = "d", action = "trash" },
           { key = "D", action = "remove" },
@@ -44,6 +45,17 @@ function M.config()
     },
     renderer = {
       group_empty = true,
+      highlight_git = true,
+      icons = {
+        show = { git = false },
+      }
+    },
+    filters = {
+      custom = {
+        "^.git$",
+        "^node_modules$",
+        "^.DS_Store$",
+      }
     }
   }
 
