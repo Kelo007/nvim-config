@@ -19,6 +19,7 @@ function M.config()
       fidget = true,
       gitsigns = true,
       nvimtree = true,
+      neotree = true,
       telescope = true,
       treesitter = true,
       which_key = true,
@@ -37,6 +38,10 @@ function M.config()
         Pmenu = { bg = C.surface0 },
         Visual = { bg = C.surface0 },
         VisualNOS = { bg = C.surface0 },
+
+        NeoTreeNormal = { fg = C.text, bg = C.mantle },
+        NeoTreeNormalNC = { fg = C.text, bg = C.mantle },
+        NeoTreeWinSeparator = { fg = C.mantle, bg = C.mantle },
       }
     end,
   }

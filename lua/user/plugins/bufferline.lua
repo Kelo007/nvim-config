@@ -27,6 +27,11 @@ function M.config()
           highlight = "PanelHeading",
           -- padding = 1,
         },
+        {
+          filetype = "neo-tree",
+          text = "Explorer",
+          highlight = "PanelHeading",
+        },
       },
       hover = {
         enabled = false,
