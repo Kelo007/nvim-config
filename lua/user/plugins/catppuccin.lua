@@ -6,7 +6,6 @@ local M = {
 
 function M.config()
   local catppuccin = require("catppuccin")
-  local U = require("catppuccin.utils.colors")
   catppuccin.setup {
     flavour = "macchiato",
     background = {
@@ -23,6 +22,7 @@ function M.config()
       telescope = true,
       treesitter = true,
       which_key = true,
+      illuminate = true,
       indent_blankline = {
         enabled = true,
         colored_indent_levels = false,
@@ -32,14 +32,18 @@ function M.config()
       return {
         IndentBlanklineChar = { fg = C.surface1 },
         FidgetTask = { bg = C.none },
+        NvimTreeWinSeparator = { bg = C.mantle, fg = C.mantle },
+        -- NvimTreeGitDirty = { fg = C.yellow, style = { "underdotted" }},
+        -- NvimTreeGitNew = { fg = C.blue, style = { "underline" } },
+        -- NvimTreeGitDeleted = { fg = C.red, style = { "undercurl" } },
         MatchParen = { bg = C.surface2 },
         NormalFloat = { bg = C.none },
         Pmenu = { bg = C.surface0 },
         Visual = { bg = C.surface0 },
         VisualNOS = { bg = C.surface0 },
+        MsgArea = { bg = C.crust },
       }
     end,
-    compile_path = vim.fn.stdpath "cache" .. "/catppuccin",
   }
   vim.cmd.colorscheme "catppuccin-macchiato"
 end

@@ -43,7 +43,7 @@ local config = {
         local float_config = vim.tbl_extend("force", float, {
           scope = "line",
         })
-        vim.diagnostic.open_float(0, float_config)
+        vim.diagnostic.open_float(float_config)
       end,
       { desc = "Line Diagnostics" }
     },

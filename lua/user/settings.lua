@@ -83,6 +83,8 @@ function M.setup()
     { "x", "<S-h>", "<Home>" },
     { "x", "<S-l>", "<End>" },
 
+    { "n", "gL", "`\"", { desc = "Go to last exited current buffer line" } },
+
     { "n", "<A-j>", ":move .+1<cr>==" },
     { "n", "<A-k>", ":move .-2<cr>==" },
     { "v", "<A-j>", ":move '>+1<cr>gv=gv" },
@@ -92,6 +94,7 @@ function M.setup()
 
     -- yank
     { "n", "Y", "\"+y" },
+    { "n", "YY", "\"+yy" },
     { "v", "Y", "\"+y" },
 
     { "n", "<up>", ":resize +5<cr>" },
@@ -124,11 +127,27 @@ function M.setup()
     --{"i", "jk", "<esc>"},
     --{"i", "kj", "<esc>"},
 
+    { { "i", "c" }, "<C-a>", "<Home>", { silent = false } },
+    { { "i", "c" }, "<C-e>", "<End>", { silent = false } },
+    { { "i", "c" }, "<C-b>", "<Left>" },
+    { { "i", "c" }, "<C-f>", "<Right>" },
+
     --{"n", "<leader>s", ":luafile $MYVIMRC<cr>:nohls<cr>"},
     { "n", "<leader>w", ":write<cr>", { desc = "Save" } },
     { "n", "<leader>q", ":quit<cr>", { desc = "Close Buffer" } },
     { "n", "<leader>c", ":close<cr>", { desc = "Close Window" } },
-    { "n", "<leader>h", ":nohls<cr>", { desc = "No Highlight" } },
+    { "n", "<leader>h", function()
+      if vim.v.hlsearch == 1 then
+        vim.cmd("nohlsearch")
+      else
+        local cword = vim.fn.expand("<cword>")
+        if cword == nil or #cword == 0 then
+          return
+        end
+        vim.fn.setreg("/", "\\<" .. cword .. "\\>")
+        vim.o.hlsearch = true
+      end
+    end, { desc = "Highlight" } },
     { "n", "<leader>e", ":Lex 30<cr>", { desc = "Toggle Explorer" } },
 
     { "n", "<leader>Ln", ":edit $NVIM_LOG_FILE<cr>", { desc = "Neovim Logfile" } },

@@ -45,14 +45,14 @@ return {
         keymaps = {
           insert = false,
           insert_line = false,
-          normal = "y<leader>s",
+          normal = "ygs",
           normal_cur = false,
           normal_line = false,
           normal_cur_line = false,
-          visual = "<leader>s",
+          visual = "gs",
           visual_line = false,
-          delete = "d<leader>s",
-          change = "c<leader>s",
+          delete = "dgs",
+          change = "cgs",
         },
       })
     end,
@@ -76,6 +76,39 @@ return {
   },
 
   {
+    "RRethy/vim-illuminate",
+    opts = {
+      delay = 200,
+      filetypes_denylist = {
+        "NvimTree",
+        "packer",
+        "lazy",
+        "mason",
+        "toggleterm",
+        "TelescopePrompt",
+      },
+    },
+    init = function()
+      -- override python's keymap
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "python",
+        callback = function ()
+          vim.keymap.del({ "n", "v" }, "]]", { buffer = 0 })
+          vim.keymap.del({ "n", "v" }, "[[", { buffer = 0 })
+        end
+      })
+    end,
+    config = function(_, opts)
+      require("illuminate").configure(opts)
+    end,
+    keys = {
+      { "]]", function() require("illuminate").goto_next_reference(false) end, desc = "Next Reference", mode = { "n", "x" }},
+      { "[[", function() require("illuminate").goto_prev_reference(false) end, desc = "Prev Reference", mode = { "n", "x" } },
+    },
+    event = "VeryLazy",
+  },
+
+  {
     "nmac427/guess-indent.nvim",
     config = true,
     event = "BufReadPost",
@@ -85,5 +118,14 @@ return {
   {
     "simrat39/rust-tools.nvim",
     ft = "rust",
+  },
+
+  {
+    "ellisonleao/glow.nvim",
+    opts = {
+      height_ratio = 0.8,
+    },
+    config = true,
+    cmd = "Glow",
   },
 }
