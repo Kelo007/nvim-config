@@ -83,9 +83,21 @@ function M.config()
     },
     renderer = {
       group_empty = true,
-      highlight_git = true,
+      highlight_git = false,
       icons = {
-        show = { git = false },
+        git_placement = "signcolumn",
+        -- show = { git = false },
+        glyphs = {
+          git = {
+            unstaged = "",
+            staged = "S",
+            unmerged = "",
+            untracked = "U",
+            renamed = "",
+            deleted = "",
+            ignored = "◌",
+          }
+        }
       }
     },
     filters = {
