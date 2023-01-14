@@ -40,6 +40,9 @@ function M.config()
       lualine_z = { "location" }
     },
   }
+  -- disyplay delay bug included in lazy.vim: https://github.com/folke/lazy.nvim/commit/5aca9280df4245df8bf8e33fe9bc4ce85507dc31
+  -- refresh here, fix the bug temporarily
+  require("lualine").refresh()
 end
 
 return M
