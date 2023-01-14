@@ -42,10 +42,10 @@ function M.config()
   keymap("n", "<leader>bw", bufferline.close_buffer_with_pick, { desc = "Pick which buffer to close" })
   keymap("n", "<leader>bl", function() bufferline.cycle(1) end, { desc = "Next" })
   keymap("n", "<leader>bh", function() bufferline.cycle(-1) end, { desc = "Previous" })
-  keymap("n", "<leader>b[", function() bufferline.go_to_buffer(1) end, { desc = "Go to first buffer" })
-  keymap("n", "<leader>b]", function() bufferline.go_to_buffer(-1) end, { desc = "Go to last buffer" })
-  keymap("n", "<leader>b,", function() bufferline.close_in_direction("left") end, { desc = "Close all to the left" })
-  keymap("n", "<leader>b;", function() bufferline.close_in_direction("right") end, { desc = "Close all to the right" })
+  keymap("n", "<leader>bH", function() bufferline.go_to_buffer(1, true) end, { desc = "Go to first buffer" })
+  keymap("n", "<leader>bL", function() bufferline.go_to_buffer(-1, true) end, { desc = "Go to last buffer" })
+  keymap("n", "<leader>b[", function() bufferline.close_in_direction("left") end, { desc = "Close all to the left" })
+  keymap("n", "<leader>b]", function() bufferline.close_in_direction("right") end, { desc = "Close all to the right" })
 end
 
 return M
