@@ -127,6 +127,11 @@ function M.setup()
     --{"i", "jk", "<esc>"},
     --{"i", "kj", "<esc>"},
 
+    { { "i", "c" }, "<C-a>", "<Home>", { silent = false } },
+    { { "i", "c" }, "<C-e>", "<End>", { silent = false } },
+    { { "i", "c" }, "<C-b>", "<Left>" },
+    { { "i", "c" }, "<C-f>", "<Right>" },
+
     --{"n", "<leader>s", ":luafile $MYVIMRC<cr>:nohls<cr>"},
     { "n", "<leader>w", ":write<cr>", { desc = "Save" } },
     { "n", "<leader>q", ":quit<cr>", { desc = "Close Buffer" } },

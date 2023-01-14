@@ -64,9 +64,9 @@ function M.config()
         if cmp.visible() then
           cmp.confirm { select = true }
         elseif luasnip.expand_or_locally_jumpable() then
-          luasnip.expand_or_jump()
-          -- elseif check_backspace() then
-          --   fallback()
+          -- luasnip.expand_or_jump()
+        -- elseif check_backspace() then
+        --   fallback()
         else
           fallback()
         end
@@ -76,7 +76,7 @@ function M.config()
       }),
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if luasnip.jumpable(-1) then
-          luasnip.jump(-1)
+          -- luasnip.jump(-1)
         else
           fallback()
         end
