@@ -114,6 +114,13 @@ return {
     event = "BufReadPost",
   },
 
+  {
+    "tyru/open-browser.vim",
+    keys = {
+      { "gx", "<Plug>(openbrowser-smart-search)", desc = "Open the file under cursor with system app", mode = { "n", "x" } },
+    },
+  },
+
   -- language specific
   {
     "simrat39/rust-tools.nvim",
