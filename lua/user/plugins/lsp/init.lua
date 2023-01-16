@@ -5,6 +5,8 @@ local M = {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "j-hui/fidget.nvim",
+    "jose-elias-alvarez/null-ls.nvim",
+    "jay-babu/mason-null-ls.nvim",
   },
   event = { "VeryLazy", "InsertEnter" },
 }
@@ -12,6 +14,12 @@ local M = {
 function M.config()
   require("user.plugins.lsp.mason")
   require("user.plugins.lsp.handlers").setup()
+  require("mason-null-ls").setup {
+    automatic_installation = false,
+    automatic_setup = true,
+  }
+  require("null-ls").setup()
+  require("mason-null-ls").setup_handlers()
   require("fidget").setup()
   vim.cmd("silent! do FileType")
 end
