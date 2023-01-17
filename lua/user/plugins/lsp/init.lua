@@ -20,7 +20,13 @@ function M.config()
   }
   require("null-ls").setup()
   require("mason-null-ls").setup_handlers()
-  require("fidget").setup()
+  require("fidget").setup {
+    sources = {
+      ["null-ls"] = {
+        ignore = true,
+      },
+    },
+  }
   vim.cmd("silent! do FileType")
 end
 
