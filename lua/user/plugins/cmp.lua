@@ -10,6 +10,7 @@ local M = {
     -- "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-nvim-lsp-signature-help",
     "saadparwaiz1/cmp_luasnip",
+    "Kelo007/copilot.lua",
   },
   event = { "VeryLazy", "InsertEnter" }
 }
@@ -63,8 +64,8 @@ function M.config()
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.confirm { select = true }
-        elseif luasnip.expand_or_locally_jumpable() then
-          -- luasnip.expand_or_jump()
+        -- elseif luasnip.expand_or_locally_jumpable() then
+        --   luasnip.expand_or_jump()
         -- elseif check_backspace() then
         --   fallback()
         else
