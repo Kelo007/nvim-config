@@ -8,10 +8,10 @@ function M.config()
     suggestion = {
       auto_trigger = true,
       keymap = {
-        accept = "<Tab>",
-        next = "<C-j>",
-        prev = "<C-k>",
-        dismiss = "<C-e>",
+        accept = "<nop>",
+        next = "<nop>",
+        prev = "<nop>",
+        dismiss = "<nop>",
       }
     }
   }

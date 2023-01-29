@@ -23,6 +23,7 @@ local M = {
 function M.config()
   local cmp = require("cmp")
   local luasnip = require("luasnip")
+  local copilot_suggestion = require("copilot.suggestion")
 
   -- see issue: https://www.reddit.com/r/neovim/comments/yiimig/cmp_luasnip_jump_points_strange_behaviour/
   luasnip.config.set_config({
@@ -47,18 +48,42 @@ function M.config()
     },
     mapping = {
       ["<C-k>"] = cmp.mapping {
-        i = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+        i = function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item { behavior = cmp.SelectBehavior.Select }
+          elseif copilot_suggestion.is_visible() then
+            copilot_suggestion.prev()
+          else
+            fallback()
+          end
+        end,
         c = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
       },
       ["<C-j>"] = cmp.mapping {
-        i = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+        i = function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
+          elseif copilot_suggestion.is_visible() then
+            copilot_suggestion.next()
+          else
+            fallback()
+          end
+        end,
         c = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
       },
       ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
       ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
       ["<C-d>"] = cmp.mapping(cmp.mapping.complete(), { "i" }),
       ["<C-e>"] = cmp.mapping {
-        i = cmp.mapping.abort(),
+        i = function(fallback)
+          if cmp.visible() then
+            cmp.abort()
+          elseif copilot_suggestion.is_visible() then
+            copilot_suggestion.dismiss()
+          else
+            fallback()
+          end
+        end,
         c = cmp.mapping.close(),
       },
       ["<Tab>"] = cmp.mapping(function(fallback)
@@ -66,6 +91,8 @@ function M.config()
           cmp.confirm { select = true }
         -- elseif luasnip.expand_or_locally_jumpable() then
         --   luasnip.expand_or_jump()
+        elseif copilot_suggestion.is_visible() then
+          copilot_suggestion.accept()
         -- elseif check_backspace() then
         --   fallback()
         else
