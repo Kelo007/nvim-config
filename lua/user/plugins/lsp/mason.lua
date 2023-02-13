@@ -52,7 +52,7 @@ mason_lspconfig.setup_handlers({
       server = default_opts
     }
   end,
-  ["sumneko_lua"] = function()
+  ["lua_ls"] = function()
     local opts = vim.tbl_extend("force", default_opts, {
       settings = {
         Lua = {
@@ -68,6 +68,6 @@ mason_lspconfig.setup_handlers({
         },
       },
     })
-    lspconfig.sumneko_lua.setup(opts)
+    lspconfig.lua_ls.setup(opts)
   end,
 })
