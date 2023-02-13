@@ -42,6 +42,7 @@ function M.config()
         Visual = { bg = C.surface0 },
         VisualNOS = { bg = C.surface0 },
         MsgArea = { bg = C.crust },
+        WhichKeyFloat = { bg = C.crust },
       }
     end,
   }
