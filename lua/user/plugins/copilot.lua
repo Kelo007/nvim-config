@@ -9,9 +9,9 @@ function M.config()
       auto_trigger = true,
       keymap = {
         accept = "<C-l>",
-        next = "<nop>",
-        prev = "<nop>",
-        dismiss = "<nop>",
+        next = nil,
+        prev = nil,
+        dismiss = nil,
       }
     }
   }
