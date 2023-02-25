@@ -78,7 +78,17 @@ function M.config()
       },
       ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i" }),
       ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i" }),
-      ["<C-t>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+      ["<C-t>"] = cmp.mapping {
+        i = cmp.mapping.complete(),
+        c = function(fallback)
+          if not cmp.visible() then
+            local tab_key = vim.api.nvim_replace_termcodes("<Tab>", true, false, true)
+            vim.api.nvim_feedkeys(tab_key, "t", true)
+          else
+            fallback()
+          end
+        end,
+      },
       ["<C-c>"] = cmp.mapping {
         i = function(fallback)
           if cmp.visible() then
