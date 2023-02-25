@@ -89,30 +89,10 @@ function M.config()
           end
         end,
       },
-      ["<C-c>"] = cmp.mapping {
-        i = function(fallback)
-          if cmp.visible() then
-            cmp.abort()
-          elseif copilot_suggestion.is_visible() then
-            copilot_suggestion.dismiss()
-          else
-            fallback()
-          end
-        end,
-        c = function(fallback)
-          if cmp.visible() then
-            -- see help c_CTRL-E
-            local end_key = vim.api.nvim_replace_termcodes("<C-e>", true, false, true)
-            vim.api.nvim_feedkeys(end_key, "n", true)
-          else
-            fallback()
-          end
-        end
-      },
       ["<C-e>"] = cmp.mapping {
         i = function(fallback)
           if cmp.visible() then
-            cmp.confirm { select = true }
+            cmp.abort()
           elseif copilot_suggestion.is_visible() then
             copilot_suggestion.accept()
           else
