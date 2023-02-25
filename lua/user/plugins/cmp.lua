@@ -76,10 +76,10 @@ function M.config()
         end,
         c = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
       },
-      ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
-      ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-      ["<C-d>"] = cmp.mapping(cmp.mapping.complete(), { "i" }),
-      ["<C-e>"] = cmp.mapping {
+      ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i" }),
+      ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i" }),
+      ["<C-t>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+      ["<C-c>"] = cmp.mapping {
         i = function(fallback)
           if cmp.visible() then
             cmp.abort()
@@ -89,7 +89,26 @@ function M.config()
             fallback()
           end
         end,
-        c = cmp.mapping.close(),
+        c = function(fallback)
+          if cmp.visible() then
+            -- I don't know why, but this is needed to abort the completion
+            local end_key = vim.api.nvim_replace_termcodes("<C-e>", true, false, true)
+            vim.api.nvim_feedkeys(end_key, "n", true)
+          else
+            fallback()
+          end
+        end
+      },
+      ["<C-e>"] = cmp.mapping {
+        i = function(fallback)
+          if cmp.visible() then
+            cmp.confirm { select = true }
+          elseif copilot_suggestion.is_visible() then
+            copilot_suggestion.accept()
+          else
+            fallback()
+          end
+        end,
       },
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
