@@ -76,20 +76,29 @@ function M.config()
         end,
         c = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
       },
-      ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
-      ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-      ["<C-d>"] = cmp.mapping(cmp.mapping.complete(), { "i" }),
+      ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i" }),
+      ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i" }),
+      ["<C-t>"] = cmp.mapping {
+        i = cmp.mapping.complete(),
+        c = function(fallback)
+          if not cmp.visible() then
+            local tab_key = vim.api.nvim_replace_termcodes("<Tab>", true, false, true)
+            vim.api.nvim_feedkeys(tab_key, "t", true)
+          else
+            fallback()
+          end
+        end,
+      },
       ["<C-e>"] = cmp.mapping {
         i = function(fallback)
           if cmp.visible() then
             cmp.abort()
           elseif copilot_suggestion.is_visible() then
-            copilot_suggestion.dismiss()
+            copilot_suggestion.accept()
           else
             fallback()
           end
         end,
-        c = cmp.mapping.close(),
       },
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
@@ -183,7 +192,7 @@ function M.config()
       documentation = cmp.config.window.bordered(),
     },
     experimental = {
-      ghost_text = true,
+      -- ghost_text = true,
       -- native_menu = true,
     },
   }

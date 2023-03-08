@@ -128,9 +128,14 @@ function M.setup()
     --{"i", "kj", "<esc>"},
 
     { { "i", "c" }, "<C-a>", "<Home>", { silent = false } },
-    { { "i", "c" }, "<C-e>", "<End>", { silent = false } },
-    { { "i", "c" }, "<C-b>", "<Left>" },
-    { { "i", "c" }, "<C-f>", "<Right>" },
+    -- there has already been a mapping for <C-e> in command mode
+    { { "i" }, "<C-e>", "<End>", { silent = false } },
+    { { "i", "c" }, "<C-b>", "<Left>", { silent = false } },
+    { { "i", "c" }, "<C-f>", "<Right>", { silent = false }},
+    { { "i", "c" }, "<C-d>", "<Del>", { silent = false } },
+    { "i", "<C-j>", "<Down>" },
+    { "i", "<C-k>", "<Up>" },
+
 
     --{"n", "<leader>s", ":luafile $MYVIMRC<cr>:nohls<cr>"},
     { "n", "<leader>w", ":write<cr>", { desc = "Save" } },

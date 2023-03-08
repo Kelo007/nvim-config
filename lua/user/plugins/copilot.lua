@@ -8,7 +8,7 @@ function M.config()
     suggestion = {
       auto_trigger = true,
       keymap = {
-        accept = "<C-l>",
+        accept = nil,
         next = nil,
         prev = nil,
         dismiss = nil,
