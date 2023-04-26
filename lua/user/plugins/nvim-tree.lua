@@ -43,6 +43,22 @@ local function git_add()
   lib.refresh_tree()
 end
 
+local function on_attach(bufnr)
+  local api = require('nvim-tree.api')
+
+  local function opts(desc)
+    return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  api.config.mappings.default_on_attach(bufnr)
+  vim.keymap.set("n", "H", api.node.navigate.parent_close, opts("close_node"))
+  vim.keymap.set("n", "L", edit_preview, opts("edit_preview"))
+  vim.keymap.set("n", "v", api.node.open.vertical, opts("vsplit"))
+  vim.keymap.set("n", "d", api.fs.trash, opts("trash"))
+  vim.keymap.set("n", "D", api.fs.remove, opts("remove"))
+  vim.keymap.set("n", "ga", git_add, opts("git_add"))
+end
+
 function M.init()
   -- hijack netrw
   vim.cmd "silent! autocmd! FileExplorer *"
@@ -52,6 +68,7 @@ end
 function M.config()
   local nvim_tree = require("nvim-tree")
   nvim_tree.setup {
+    on_attach = on_attach,
     disable_netrw = true,
     hijack_netrw = true,
     hijack_cursor = true,
@@ -69,17 +86,6 @@ function M.config()
     },
     view = {
       width = 25,
-      mappings = {
-        custom_only = false,
-        list = {
-          { key = "H", action = "close_node" },
-          { key = "L", action = "edit_preview", action_cb = edit_preview },
-          { key = "v", action = "vsplit" },
-          { key = "d", action = "trash" },
-          { key = "D", action = "remove" },
-          { key = "ga", action = "git_add", action_cb = git_add },
-        },
-      },
     },
     renderer = {
       group_empty = true,
