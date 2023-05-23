@@ -73,10 +73,10 @@ local config = {
     signs = {
       active = true,
       values = {
-        { name = "DiagnosticSignError", text = "" },
+        { name = "DiagnosticSignError", text = "󰅚" },
         { name = "DiagnosticSignWarn", text = "" },
-        { name = "DiagnosticSignHint", text = "" },
-        { name = "DiagnosticSignInfo", text = "" },
+        { name = "DiagnosticSignHint", text = "󰌶" },
+        { name = "DiagnosticSignInfo", text = "󰋽" },
       }
     },
     update_in_insert = false,
