@@ -63,6 +63,7 @@ function M.config()
   keymap("n", "<leader>ft", builtin.live_grep, { desc = "Text" })
   keymap("n", "<leader>fk", builtin.keymaps, { desc = "Keymaps" })
   keymap("n", "<leader>fc", builtin.commands, { desc = "Commands" })
+  keymap("n", "<leader>fp", builtin.resume, { desc = "Previous picker" })
 
   keymap("n", "<leader>p", function()
     builtin.find_files(dropdown_theme { previewer = false })
