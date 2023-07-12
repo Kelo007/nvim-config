@@ -78,10 +78,8 @@ function M.setup()
     { "n", "<C-l>", "<C-w>l" },
     { "n", "<space>", "<nop>" },
 
-    { "n", "<S-h>", "<Home>" },
-    { "n", "<S-l>", "<End>" },
-    { "x", "<S-h>", "<Home>" },
-    { "x", "<S-l>", "<End>" },
+    { {"n", "x", "o"}, "<S-h>", "<Home>" },
+    { {"n", "x", "o"}, "<S-l>", "<End>" },
 
     { "n", "gL", "`\"", { desc = "Go to last exited current buffer line" } },
 
