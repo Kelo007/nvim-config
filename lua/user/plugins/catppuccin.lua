@@ -27,6 +27,7 @@ function M.config()
         enabled = true,
         colored_indent_levels = false,
       },
+      mason = true,
     },
     custom_highlights = function(C)
       return {
