@@ -42,7 +42,8 @@ function M.config()
   }
   -- disyplay delay bug included in lazy.vim: https://github.com/folke/lazy.nvim/commit/5aca9280df4245df8bf8e33fe9bc4ce85507dc31
   -- refresh here, fix the bug temporarily
-  require("lualine").refresh()
+  -- 2023-07-28: no longer needed in new machine
+  -- require("lualine").refresh()
 end
 
 return M
