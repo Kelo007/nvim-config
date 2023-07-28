@@ -103,8 +103,9 @@ return {
       require("illuminate").configure(opts)
     end,
     keys = {
-      { "]]", function() require("illuminate").goto_next_reference(false) end, desc = "Next Reference", mode = { "n", "x" }},
+      { "]]", function() require("illuminate").goto_next_reference(false) end, desc = "Next Reference", mode = { "n", "x" } },
       { "[[", function() require("illuminate").goto_prev_reference(false) end, desc = "Prev Reference", mode = { "n", "x" } },
+      { "<cr>", function() require("illuminate").textobj_select() end, desc = "Select Reference", mode = "n" },
     },
     event = "VeryLazy",
   },
