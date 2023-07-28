@@ -54,6 +54,7 @@ function M.config()
     playground = {
       enable = false,
     }
+    -- TODO: treesitter textobjects
   }
 end
 
