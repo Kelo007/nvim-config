@@ -94,6 +94,7 @@ function M.setup()
     { "n", "Y", "\"+y" },
     { "n", "YY", "\"+yy" },
     { "v", "Y", "\"+y" },
+    { "i", "<C-v>", "<C-r>+" },
 
     { "n", "<up>", ":resize +5<cr>" },
     { "n", "<down>", ":resize -5<cr>" },

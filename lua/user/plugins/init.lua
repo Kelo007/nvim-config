@@ -62,16 +62,18 @@ return {
 
   {
     "lukas-reineke/indent-blankline.nvim",
+    branch = "v3",
     config = function()
-      local indent = require("indent_blankline")
-      indent.setup {
-        char = "▏",
-        --char = "⎸",
-        show_current_context = false,
-        show_current_context_start = false,
-        show_trailing_blankline_indent = false,
-      }
-      indent.refresh(false)
+      require("ibl").setup()
+      -- local indent = require("indent_blankline")
+      -- indent.setup {
+      --   char = "▏",
+      --   --char = "⎸",
+      --   show_current_context = false,
+      --   show_current_context_start = false,
+      --   show_trailing_blankline_indent = false,
+      -- }
+      -- indent.refresh(false)
     end,
     event = "VeryLazy"
   },
