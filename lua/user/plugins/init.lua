@@ -62,9 +62,15 @@ return {
 
   {
     "lukas-reineke/indent-blankline.nvim",
-    branch = "v3",
+    main = "ibl",
     config = function()
-      require("ibl").setup()
+      require("ibl").setup {
+        -- indent = { char = "▏" },
+        scope = {
+          enabled = false,
+          show_start = false,
+        },
+      }
       -- local indent = require("indent_blankline")
       -- indent.setup {
       --   char = "▏",
