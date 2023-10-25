@@ -70,4 +70,11 @@ mason_lspconfig.setup_handlers({
     })
     lspconfig.lua_ls.setup(opts)
   end,
+  ["clangd"] = function()
+    local opts = vim.tbl_extend("force", default_opts, {
+      capabilities = {
+        offsetEncoding = { "utf-8", "utf-16" },
+      }
+    })
+  end
 })
