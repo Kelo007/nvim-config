@@ -2,12 +2,14 @@ local M = {
   "nvim-treesitter/nvim-treesitter",
   dependencies = {
     -- { "nvim-treesitter/playground" },
+    {"JoosepAlviste/nvim-ts-context-commentstring"}
   },
   build = ":TSUpdate",
   event = { "BufReadPost", "VeryLazy" },
 }
 
 function M.config()
+  vim.g.skip_ts_context_commentstring_module = true
   require("nvim-treesitter.configs").setup {
     ensure_installed = {},
     sync_install = false,
@@ -29,20 +31,20 @@ function M.config()
     autopairs = {
       enable = true,
     },
-    context_commentstring = {
-      enable = true,
-      enable_autocmd = false,
-      config = {
-        -- Languages that have a single comment style
-        typescript = "// %s",
-        css = "/* %s */",
-        scss = "/* %s */",
-        html = "<!-- %s -->",
-        svelte = "<!-- %s -->",
-        vue = "<!-- %s -->",
-        json = "",
-      },
-    },
+    -- context_commentstring = {
+    --   enable = true,
+    --   enable_autocmd = false,
+    --   config = {
+    --     -- Languages that have a single comment style
+    --     typescript = "// %s",
+    --     css = "/* %s */",
+    --     scss = "/* %s */",
+    --     html = "<!-- %s -->",
+    --     svelte = "<!-- %s -->",
+    --     vue = "<!-- %s -->",
+    --     json = "",
+    --   },
+    -- },
     incremental_selection = {
       enable = true,
       keymaps = {
