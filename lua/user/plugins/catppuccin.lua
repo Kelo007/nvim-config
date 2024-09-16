@@ -31,7 +31,7 @@ function M.config()
     },
     custom_highlights = function(C)
       return {
-        IndentBlanklineChar = { fg = C.surface1 },
+        IblIndent = { fg = C.surface1 },
         FidgetTask = { bg = C.none },
         NvimTreeWinSeparator = { bg = C.mantle, fg = C.mantle },
         -- NvimTreeGitDirty = { fg = C.yellow, style = { "underdotted" }},
@@ -43,7 +43,7 @@ function M.config()
         Visual = { bg = C.surface0 },
         VisualNOS = { bg = C.surface0 },
         MsgArea = { bg = C.crust },
-        WhichKeyFloat = { bg = C.crust },
+        WhichKeyNormal = { bg = C.crust },
       }
     end,
   }
