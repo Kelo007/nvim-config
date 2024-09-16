@@ -1,13 +1,14 @@
 local M = {
   "folke/which-key.nvim",
   event = "VeryLazy",
+  dependencies = { "echasnovski/mini.icons", version = false },
 }
 
 function M.config()
   local which_key = require("which-key")
 
   which_key.setup {
-    window = {
+    win = {
       border = "none",
     },
     plugins = {
@@ -25,19 +26,14 @@ function M.config()
         g = true,
       },
     },
-    triggers_blacklist = {
-      i = { "j", "k" },
-      v = { "j", "k" },
-      n = { "y", "d", "c" }
-    },
   }
-  which_key.register {
-    ["<leader>b"] = { name = "+Buffer" },
-    ["<leader>f"] = { name = "+Find" },
-    ["<leader>g"] = { name = "+Git" },
-    ["<leader>l"] = { name = "+LSP" },
-    ["<leader>L"] = { name = "+Log" },
-    -- ["<leader>s"] = { name = "Surrounding Operator" },
+  which_key.add {
+    { "<leader>b", group = "Buffer" },
+    { "<leader>f", group = "Find" },
+    { "<leader>g", group = "Git" },
+    { "<leader>l", group = "LSP" },
+    { "<leader>L", group = "Log" },
+    -- { "<leader>s", group = "Surrounding Operator" },
   }
 end
 

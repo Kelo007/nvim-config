@@ -1,6 +1,7 @@
 local M = {
   "akinsho/bufferline.nvim",
-  version = "*",
+  -- version = "*",
+  commit = "73540cb",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   lazy = false,
 }
