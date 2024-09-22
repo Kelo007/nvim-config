@@ -9,6 +9,8 @@ local function set_term_opts()
   local opts = { buffer = 0 }
   utils.keymap({ "t", "n" }, "<ScrollWheelLeft>", "<nop>", opts)
   utils.keymap({ "t", "n" }, "<ScrollWheelRight>", "<nop>", opts)
+  -- on Windows, ctrl+enter will close the terminal, disable this behavior
+  utils.keymap({ "t", "n" }, "<C-J>", "<nop>")
 
   vim.api.nvim_win_set_option(0, "number", false)
   vim.api.nvim_win_set_option(0, "relativenumber", false)
