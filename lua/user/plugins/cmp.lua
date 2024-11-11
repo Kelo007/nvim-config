@@ -28,7 +28,12 @@ local M = {
 function M.config()
   local cmp = require("cmp")
   local luasnip = require("luasnip")
-  local copilot_suggestion = require("copilot.suggestion")
+  local copilot_enable = false
+  local copilot_suggestion = nil
+
+  if copilot_enable then
+    copilot_suggestion = require("copilot.suggestion")
+  end
 
   -- see issue: https://www.reddit.com/r/neovim/comments/yiimig/cmp_luasnip_jump_points_strange_behaviour/
   luasnip.config.set_config({
@@ -56,7 +61,7 @@ function M.config()
         i = function(fallback)
           if cmp.visible() then
             cmp.select_prev_item { behavior = cmp.SelectBehavior.Select }
-          elseif copilot_suggestion.is_visible() then
+          elseif copilot_enable and copilot_suggestion.is_visible() then
             copilot_suggestion.prev()
           else
             fallback()
@@ -68,7 +73,7 @@ function M.config()
         i = function(fallback)
           if cmp.visible() then
             cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
-          elseif copilot_suggestion.is_visible() then
+          elseif copilot_enable and copilot_suggestion.is_visible() then
             copilot_suggestion.next()
           else
             fallback()
@@ -93,7 +98,7 @@ function M.config()
         i = function(fallback)
           if cmp.visible() then
             cmp.abort()
-          elseif copilot_suggestion.is_visible() then
+          elseif copilot_enable and copilot_suggestion.is_visible() then
             copilot_suggestion.accept()
           else
             fallback()

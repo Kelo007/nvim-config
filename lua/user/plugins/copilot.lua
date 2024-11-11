@@ -1,6 +1,7 @@
 local M = {
   "Kelo007/copilot.lua",
   cmd = "Copilot",
+  enabled = false,
 }
 
 function M.config()
