@@ -23,6 +23,7 @@ function M.config()
       treesitter = true,
       which_key = true,
       illuminate = true,
+      blink_cmp = true,
       indent_blankline = {
         enabled = true,
         colored_indent_levels = false,

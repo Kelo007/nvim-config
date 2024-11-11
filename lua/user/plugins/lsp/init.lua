@@ -1,7 +1,7 @@
 local M = {
   "neovim/nvim-lspconfig",
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
+    "saghen/blink.cmp",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     { "j-hui/fidget.nvim", tag="legacy" },

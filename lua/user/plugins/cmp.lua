@@ -12,7 +12,8 @@ local M = {
     "saadparwaiz1/cmp_luasnip",
     "Kelo007/copilot.lua",
   },
-  event = { "VeryLazy", "InsertEnter" }
+  event = { "VeryLazy", "InsertEnter" },
+  enabled = false,
 }
 
 -- local check_backspace = function()
