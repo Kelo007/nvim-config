@@ -10,7 +10,7 @@ local M = {
     -- "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-nvim-lsp-signature-help",
     "saadparwaiz1/cmp_luasnip",
-    "Kelo007/copilot.lua",
+    "zbirenbaum/copilot.lua",
   },
   event = { "VeryLazy", "InsertEnter" },
   enabled = false,
