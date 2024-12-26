@@ -182,6 +182,9 @@ M.on_attach = function(client, bufnr)
   if config.code_lens_refresh then
     lsp_codelens(client, bufnr)
   end
+  if client.supports_method("textDocument/inlayHint") or client.server_capabilities.inlayHintProvider then
+    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+  end
 end
 
 M.on_exit = function(_, _)
