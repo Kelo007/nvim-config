@@ -44,8 +44,7 @@ local M = {
     "rafamadriz/friendly-snippets",
     -- "zbirenbaum/copilot.lua",
   },
-  lazy = false,
-  version = "v0.*",
+  version = "*",
   opts = {
     keymap = {
       preset = "super-tab",
@@ -55,17 +54,12 @@ local M = {
       ["<C-;>"] = { "snippet_forward" },
       ["<C-,>"] = { "snippet_backward" },
     },
-    nerd_font_variant = "mono",
-
-    accept = { auto_brackets = { enabled = true } },
-    trigger = { signature_help = { enabled = true } },
+    completion = {
+      accept = { auto_brackets = { enabled = true } },
+      menu = { min_width = 20 },
+    },
+    signature = { enabled = true },
   },
-  opts_extend = { "sources.completion.enabled_providers" },
-  window = {
-    autocomplete = {
-      min_width = 20,
-    }
-  }
 }
 
 return M
