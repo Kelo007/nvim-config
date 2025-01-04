@@ -4,6 +4,7 @@ local M = {
     "JoosepAlviste/nvim-ts-context-commentstring",
   },
   event = "VeryLazy",
+  enabled = false,
 }
 
 function M.config()

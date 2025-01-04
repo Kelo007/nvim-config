@@ -95,8 +95,8 @@ function M.config()
         -- show = { git = false },
         glyphs = {
           git = {
-            unstaged = "",
-            staged = "S",
+            unstaged = "󰄱",
+            staged = "󰱒",
             unmerged = "",
             untracked = "U",
             renamed = "",
