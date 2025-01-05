@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "lspinfo", "lsp-installer", "null-ls-info", "help", "qf", "man" },
   group = augroup("close_buffers"),
-  callback = function()
+  callback = function(event)
     local opts = { buffer = true, silent = true, nowait = true, desc = "close lspinfo popup and help,qf buffers" }
     vim.keymap.set("n", "q", function()
       vim.cmd.close()
