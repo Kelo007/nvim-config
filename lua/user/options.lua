@@ -43,6 +43,7 @@ opt.showmode = false
 opt.ruler = false
 opt.virtualedit = "block"
 -- TODO(Kelo): fold options
+opt.foldlevel = 99
 opt.fillchars = {
   foldopen = "",
   foldclose = "",
@@ -50,8 +51,16 @@ opt.fillchars = {
   foldsep = " ",
   diff = "╱",
   eob = " ",
+
+  -- make separator thicker
+  horiz     = '━',
+  horizup   = '┻',
+  horizdown = '┳',
+  vert      = '┃',
+  vertleft  = '┫',
+  vertright = '┣',
+  verthoriz = '╋',
 }
-opt.foldlevel = 99
 -- wsl clipboard
 if vim.fn.has("wsl") == 1 then
   vim.g.clipboard = {
