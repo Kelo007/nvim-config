@@ -14,16 +14,20 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 
--- close lspinfo popup and help,qf buffers with q
+-- close special buffers with q
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "lspinfo", "lsp-installer", "null-ls-info", "help", "qf", "man" },
+  pattern = { "lspinfo", "lsp-installer", "null-ls-info", "help", "qf", "man", "checkhealth" },
   group = augroup("close_buffers"),
   callback = function(event)
-    local opts = { buffer = true, silent = true, nowait = true, desc = "close lspinfo popup and help,qf buffers" }
-    vim.keymap.set("n", "q", function()
-      vim.cmd.close()
-      pcall(vim.api.nvim_buf_delete, event.buf, { force = true })
-    end, opts)
+    vim.bo[event.buf].buflisted = false
+    local opts = { buffer = event.buf, silent = true, nowait = true, desc = "quit special buffer" }
+    vim.schedule(function()
+      vim.keymap.set("n", "q", function()
+        print("close buffer", event.buf)
+        vim.cmd.close()
+        pcall(vim.api.nvim_buf_delete, event.buf, { force = true })
+      end, opts)
+    end)
   end,
   desc = "close lspinfo popup and help,qf buffers with q",
 })
