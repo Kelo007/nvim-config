@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 
 -- close special buffers with q
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "lspinfo", "lsp-installer", "null-ls-info", "help", "qf", "man", "checkhealth" },
+  pattern = { "lspinfo", "lsp-installer", "null-ls-info", "help", "qf", "man", "checkhealth", "grug-far" },
   group = augroup("close_buffers"),
   callback = function(event)
     vim.bo[event.buf].buflisted = false
