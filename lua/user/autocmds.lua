@@ -23,7 +23,6 @@ vim.api.nvim_create_autocmd("FileType", {
     local opts = { buffer = event.buf, silent = true, nowait = true, desc = "quit special buffer" }
     vim.schedule(function()
       vim.keymap.set("n", "q", function()
-        print("close buffer", event.buf)
         vim.cmd.close()
         pcall(vim.api.nvim_buf_delete, event.buf, { force = true })
       end, opts)
