@@ -139,6 +139,11 @@ return {
     end,
   },
 
+  {
+    "kevinhwang91/nvim-bqf",
+    ft = "qf",
+  },
+
   -- language specific
   {
     "simrat39/rust-tools.nvim",
