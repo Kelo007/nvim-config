@@ -144,6 +144,21 @@ return {
     ft = "qf",
   },
 
+  {
+    "max397574/better-escape.nvim",
+    event = "VeryLazy",
+    config = function()
+      vim.keymap.del("i", "jk")
+      vim.keymap.del("i", "kj")
+      require("better_escape").setup({
+        default_mappings = false,
+        mappings = {
+          i = { j = { k = "<Esc>" }, k = { j = "<Esc>" } },
+        },
+      })
+    end,
+  },
+
   -- language specific
   {
     "simrat39/rust-tools.nvim",

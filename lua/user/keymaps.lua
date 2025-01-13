@@ -60,7 +60,9 @@ map("n", "VV", "ggVG")
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
-map("i", "jj", "<esc>")
+-- map("i", "jj", "<esc>")
+map("i", "jk", "<esc>")
+map("i", "kj", "<esc>")
 
 map({ "i", "c" }, "<C-a>", "<Home>", { silent = false })
 -- there has already been a mapping for <C-e> in command mode
