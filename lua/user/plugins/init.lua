@@ -151,6 +151,7 @@ return {
       vim.keymap.del("i", "jk")
       vim.keymap.del("i", "kj")
       require("better_escape").setup({
+        timeout = 100,
         default_mappings = false,
         mappings = {
           i = { j = { k = "<Esc>" }, k = { j = "<Esc>" } },
