@@ -57,6 +57,7 @@ local M = {
     completion = {
       accept = { auto_brackets = { enabled = true } },
       menu = { min_width = 20 },
+      list = { selection = { auto_insert = false } },
     },
     signature = { enabled = true },
   },
