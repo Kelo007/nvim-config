@@ -51,8 +51,8 @@ local M = {
       ["<C-j>"] = { "select_next", copilot.next, "fallback" },
       ["<C-k>"] = { "select_prev", copilot.prev, "fallback" },
       ["<C-e>"] = { "hide", copilot.accept, "fallback" },
-      ["<C-;>"] = { "snippet_forward" },
-      ["<C-,>"] = { "snippet_backward" },
+      ["<C-l>"] = { "snippet_forward" },
+      ["<C-h>"] = { "snippet_backward" },
     },
     completion = {
       accept = { auto_brackets = { enabled = true } },
