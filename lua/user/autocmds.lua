@@ -74,3 +74,11 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   end,
   desc = "check if we need to reload the file when it changed",
 })
+
+-- remove trailing whitespace
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = augroup("remove_trailing_whitespace"),
+  pattern = "*",
+  command = [[%s/\s\+$//e]],
+  desc = "remove trailing whitespace",
+})
