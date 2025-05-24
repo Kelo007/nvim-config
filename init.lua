@@ -1,5 +1,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-require("user.lazy").setup()
-
+if not vim.g.vscode then
+  require("user.lazy").setup()
+else
+  require("vscode-nvim.lazy").setup()
+end
