@@ -85,10 +85,12 @@ map("x", "<C-c>", "\"+y", { desc = "Copy to Clipboard" })
 
 map("n", "<leader>w", ":write<cr>", { desc = "Save" })
 map("n", "<leader>q", ":quit<cr>", { desc = "Close Buffer" })
-map("n", "<leader>c", ":close<cr>", { desc = "Close Window" })
+map("n", "<leader>c", function()
+  require("vscode").action("workbench.action.closeGroup")
+end, { desc = "Close Window" })
 map("n", "<leader>h", function()
   if vim.v.hlsearch == 1 then
-    vim.cmd("nohlsearch")
+    vim.cmd("nohlsearch|diffupdate|mode")
   else
     local cword = vim.fn.expand("<cword>")
     if cword == nil or #cword == 0 then
