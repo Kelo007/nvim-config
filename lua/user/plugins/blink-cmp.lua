@@ -60,6 +60,10 @@ local M = {
       list = { selection = { auto_insert = false } },
     },
     signature = { enabled = true },
+    cmdline = {
+      keymap = { preset = "inherit" },
+      completion = { menu = { auto_show = true } },
+    },
   },
 }
 
