@@ -84,6 +84,11 @@ end)
 map("n", "[d", function()
   require("vscode").action("editor.action.marker.prevInFiles")
 end)
+
+map("n", "<leader>lr", function ()
+  require("vscode").action("editor.action.rename")
+end, { desc = "Rename" })
+
 map("x", "<C-c>", "\"+y", { desc = "Copy to Clipboard" })
 
 map("n", "<leader>w", ":write<cr>", { desc = "Save" })
