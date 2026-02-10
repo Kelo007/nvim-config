@@ -5,10 +5,10 @@ local M = {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "make",
     },
-    {
-      "natecraddock/telescope-zf-native.nvim",
-      rocks = { enabled = false }
-    }
+    -- {
+    --   "natecraddock/telescope-zf-native.nvim",
+    --   rocks = { enabled = false }
+    -- }
   },
   event = "VeryLazy",
 }
@@ -48,8 +48,7 @@ function M.config()
     },
   }
 
-  -- require('telescope').load_extension('fzf')
-  require('telescope').load_extension('zf-native')
+  require('telescope').load_extension('fzf')
 
   local builtin = require('telescope.builtin')
   local themes = require("telescope.themes")

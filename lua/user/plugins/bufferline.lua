@@ -9,7 +9,7 @@ function M.config()
   local bufferline = require("bufferline")
 
   bufferline.setup {
-    highlights = require("catppuccin.groups.integrations.bufferline").get(),
+    highlights = require("catppuccin.special.bufferline").get_theme(),
     options = {
       close_command = "Bdelete! %d",
       left_mouse_command = "buffer %d",
